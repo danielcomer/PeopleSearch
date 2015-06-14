@@ -1,0 +1,7 @@
+﻿{
+  "Data": {
+    "DefaultConnection": {
+      "ConnectionString": "Server=(localdb);Database=peoplesearchdb;Integrated Security=True;Trusted_Connection=True;"
+    }
+  }
+}

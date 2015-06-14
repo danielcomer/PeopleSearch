@@ -1,26 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNet.Builder;
-using Microsoft.AspNet.Http;
+﻿using Microsoft.AspNet.Builder;
+using Microsoft.AspNet.Hosting;
+using Microsoft.Framework.ConfigurationModel;
 using Microsoft.Framework.DependencyInjection;
 
 namespace PeopleSearch.WebApi
 {
     public class Startup
     {
-        // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
+        public static IConfiguration Configuration { get; set; }
+
+        public Startup(IHostingEnvironment env)
+        {
+            // Setup configuration sources.
+            Configuration = new Configuration().AddJsonFile("config.json").AddEnvironmentVariables();
+        }
+
         public void ConfigureServices(IServiceCollection services)
         {
+            // Add EF services to the services container.
+            //todo
+            //services.AddEntityFramework(Configuration).AddSqlServer().AddDbContext<RegistrationDbContext>();
+
+            services.AddMvc();
+
+            //todo: register repositories and database contexts
+            //services.AddScoped<IPersonRepo, RegistrationRepo>();
+            //services.AddScoped<RegistrationDbContext, RegistrationDbContext>();
         }
 
         public void Configure(IApplicationBuilder app)
         {
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync("Hello World!");
-            });
+            app.UseMvc();
+            app.UseWelcomePage();
         }
     }
 }
