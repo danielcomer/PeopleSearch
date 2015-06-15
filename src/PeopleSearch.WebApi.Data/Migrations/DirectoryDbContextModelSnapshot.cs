@@ -8,8 +8,8 @@ using PeopleSearch.WebApi.Data.Entities;
 
 namespace PeopleSearch.WebApi.Data.Migrations
 {
-    [ContextType(typeof(MigrateableDirectoryDbContext))]
-    partial class MigrateableDirectoryDbContextModelSnapshot : ModelSnapshot
+    [ContextType(typeof(DirectoryDbContext))]
+    partial class DirectoryDbContextModelSnapshot : ModelSnapshot
     {
         public override IModel Model
         {

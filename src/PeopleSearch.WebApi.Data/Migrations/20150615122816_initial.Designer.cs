@@ -8,12 +8,12 @@ using PeopleSearch.WebApi.Data.Entities;
 
 namespace PeopleSearch.WebApi.Data.Migrations
 {
-    [ContextType(typeof(MigrateableDirectoryDbContext))]
+    [ContextType(typeof(DirectoryDbContext))]
     partial class initial
     {
         public override string Id
         {
-            get { return "20150615114031_initial"; }
+            get { return "20150615122816_initial"; }
         }
         
         public override string ProductVersion

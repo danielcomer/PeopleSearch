@@ -25,15 +25,18 @@ namespace PeopleSearch.WebApi
         {
             services.AddEntityFramework()
                 .AddSqlServer()
-                .AddDbContext<DirectoryDbContext>(options => options.UseSqlServer(Configuration.Get("Data:DefaultConnection:ConnectionString")));
+                .AddDbContext<DirectoryDbContext>(builder => builder.UseSqlServer(Configuration.Get("Data:DefaultConnection:ConnectionString")));
 
             services.AddMvc();
 
-            services.AddSingleton<IConfiguration>(provider => Configuration);
+            services.AddInstance(Configuration);
             services.AddScoped<IDirectoryDbContext, DirectoryDbContext>();
             services.AddScoped<IDirectoryRepository, DbContextDirectoryRepository>();
         }
 
+        /// <remarks>
+        /// Seed Data Generation isn't possible in EF7 yet
+        /// </remarks>
         private void GenerateSeedData(DirectoryDbContext context)
         {
             if (context.People.FirstOrDefault() == null)
@@ -98,14 +101,14 @@ namespace PeopleSearch.WebApi
 
                 context.SaveChanges();
 
-                context.People.Add(new Person { FirstName = "Susan", LastName = "Nicholson", Gender = Gender.Female, HomeAddress = a1.Entity });
-                context.People.Add(new Person { FirstName = "Albert", LastName = "Porter", Gender = Gender.Male, HomeAddress = a2.Entity });
-                context.People.Add(new Person { FirstName = "Helen", LastName = "Short", Gender = Gender.Female, HomeAddress = a3.Entity });
-                context.People.Add(new Person { FirstName = "Wendell", LastName = "Ford", Gender = Gender.Male, HomeAddress = a4.Entity });
-                context.People.Add(new Person { FirstName = "Billy", LastName = "Lane", Gender = Gender.Male, HomeAddress = a5.Entity });
-                context.People.Add(new Person { FirstName = "Roberto", LastName = "Peloquin", Gender = Gender.Male, HomeAddress = a6.Entity });
-                context.People.Add(new Person { FirstName = "Carrie", LastName = "Crawford", Gender = Gender.Female, HomeAddress = a7.Entity });
-                context.People.Add(new Person { FirstName = "Linwood", LastName = "McCarter", Gender = Gender.Female, HomeAddress = a8.Entity });
+                context.People.Add(new Person { Id = 1, FirstName = "Susan", LastName = "Nicholson", Gender = Gender.Female, HomeAddress = a1.Entity });
+                context.People.Add(new Person { Id = 2, FirstName = "Albert", LastName = "Porter", Gender = Gender.Male, HomeAddress = a2.Entity });
+                context.People.Add(new Person { Id = 3, FirstName = "Helen", LastName = "Short", Gender = Gender.Female, HomeAddress = a3.Entity });
+                context.People.Add(new Person { Id = 4, FirstName = "Wendell", LastName = "Ford", Gender = Gender.Male, HomeAddress = a4.Entity });
+                context.People.Add(new Person { Id = 5, FirstName = "Billy", LastName = "Lane", Gender = Gender.Male, HomeAddress = a5.Entity });
+                context.People.Add(new Person { Id = 6, FirstName = "Roberto", LastName = "Peloquin", Gender = Gender.Male, HomeAddress = a6.Entity });
+                context.People.Add(new Person { Id = 7, FirstName = "Carrie", LastName = "Crawford", Gender = Gender.Female, HomeAddress = a7.Entity });
+                context.People.Add(new Person { Id = 8, FirstName = "Linwood", LastName = "McCarter", Gender = Gender.Female, HomeAddress = a8.Entity });
 
                 context.SaveChanges();
             }
@@ -116,39 +119,7 @@ namespace PeopleSearch.WebApi
             //todo: replace with seed data in entity framework 7 when they implement it
             GenerateSeedData(context);
 
-            //// Configure the HTTP request pipeline.
-            //// Add the console logger.
-            //loggerfactory.AddConsole();
-
-            //// Add the following to the request pipeline only in development environment.
-            //if (string.Equals(env.EnvironmentName, "Development", StringComparison.OrdinalIgnoreCase))
-            //{
-            //    app.UseBrowserLink();
-            //    app.UseErrorPage(ErrorPageOptions.ShowAll);
-            //    app.UseDatabaseErrorPage(DatabaseErrorPageOptions.ShowAll);
-            //}
-            //else
-            //{
-            //    // Add Error handling middleware which catches all application specific errors and
-            //    // send the request to the following path or controller action.
-            //    app.UseErrorHandler("/Home/Error");
-            //}
-
-            //// Add static files to the request pipeline.
-            //app.UseStaticFiles();
-
-            //// Add cookie-based authentication to the request pipeline.
-            //app.UseIdentity();
-
-            //// Add MVC to the request pipeline.
-            //app.UseMvc(routes =>
-            //{
-            //    routes.MapRoute(
-            //    name: "default",
-            //    template: "{controller}/{action}/{id?}",
-            //    defaults: new { controller = "Home", action = "Index" });
-            //});
-
+            app.UseStaticFiles();
             app.UseMvc();
             app.UseWelcomePage();
         }
