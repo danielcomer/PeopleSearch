@@ -12,7 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "PeopleSearch.WebApi", "src\PeopleSearch.WebApi\PeopleSearch.WebApi.xproj", "{BD24CE0F-64F8-401F-B4F8-9A90AE5519C0}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "PeopleSearch.WebApi.Model", "src\PeopleSearch.WebApi.Model\PeopleSearch.WebApi.Model.xproj", "{1BF8837E-F134-4DEC-B579-8B55987806BB}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "PeopleSearch.WebApi.Data", "src\PeopleSearch.WebApi.Data\PeopleSearch.WebApi.Data.xproj", "{1BF8837E-F134-4DEC-B579-8B55987806BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
