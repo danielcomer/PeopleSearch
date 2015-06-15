@@ -13,8 +13,8 @@ namespace PeopleSearch.WebApi.Data
         private const string MigrationConnectionString = "Server=localhost;Database=peoplesearchdb;Integrated Security=True;";
         private readonly IConfiguration _config;
 
-        public DbSet<Person> People { get; set; }
-        public DbSet<Address> Addresses { get; set; }
+        public virtual DbSet<Person> People { get; set; }
+        public virtual DbSet<Address> Addresses { get; set; }
 
         /// <remarks>
         /// provided for migrations
