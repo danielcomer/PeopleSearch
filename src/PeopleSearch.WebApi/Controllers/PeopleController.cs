@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNet.Mvc;
+﻿using System.Collections.Generic;
+using Microsoft.AspNet.Mvc;
 using PeopleSearch.WebApi.Data;
+using PeopleSearch.WebApi.Data.Entities;
 
 namespace PeopleSearch.WebApi.Controllers
 {
@@ -16,7 +18,7 @@ namespace PeopleSearch.WebApi.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return new ObjectResult(_directoryRepository.GetAllPeople());
+            return new ObjectResult(_directoryRepository.GetAllPeople() ?? new List<Person>());
         }
 
         [HttpGet("{id:int}", Name = "GetById")]

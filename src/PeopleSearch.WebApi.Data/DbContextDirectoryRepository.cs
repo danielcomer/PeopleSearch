@@ -35,6 +35,8 @@ namespace PeopleSearch.WebApi.Data
 
             if (person == null) return false;
 
+            _db.People.Remove(person);
+
             return _db.SaveChanges() > 0;
         }
     }
