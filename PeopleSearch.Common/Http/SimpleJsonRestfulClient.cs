@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
 using System.Runtime.Serialization.Json;
@@ -13,42 +14,38 @@ namespace PeopleSearch.Common.Http
         private readonly DataContractJsonSerializer _serializer;
         private readonly Uri _baseUri;
 
-        public SimpleJsonRestfulClient(string baseUrl)
+        public SimpleJsonRestfulClient(IHttpClient client, string baseUrl)
         {
             _serializer = new DataContractJsonSerializer(typeof(T));
             _baseUri = new Uri(baseUrl);
-            //_client = new HttpClient();
+            _client = client;
         }
 
-        public async Task<T> Get(string path)
+        public async Task<IEnumerable<T>> GetAll()
         {
-            Uri url;
-            if (!Uri.TryCreate(_baseUri, path, out url))
+            using (var result = await _client.GetStreamAsync(_baseUri).ConfigureAwait(false))
             {
-                throw new ArgumentException("Invalid path.", nameof(path));
+                return (IEnumerable<T>)_serializer.ReadObject(result);
             }
+        }
 
-            using (var result = await _client.GetStreamAsync(url).ConfigureAwait(false))
+        public async Task<T> Get(int id)
+        {
+            using (var result = await _client.GetStreamAsync(new Uri(_baseUri, id.ToString())).ConfigureAwait(false))
             {
                 return (T)_serializer.ReadObject(result);
             }
         }
 
-        public async Task<T> Post(string path, HttpContent content)
+        public async Task<T> Post(HttpContent content)
         {
-            var response = await PostString(path, content).ConfigureAwait(false);
+            var response = await PostString(content).ConfigureAwait(false);
             return (T)_serializer.ReadObject(new MemoryStream(Encoding.UTF8.GetBytes(response)));
         }
 
-        private async Task<string> PostString(string path, HttpContent content)
+        private async Task<string> PostString(HttpContent content)
         {
-            Uri url;
-            if (!Uri.TryCreate(_baseUri, path, out url))
-            {
-                throw new ArgumentException("Invalid path.", nameof(path));
-            }
-
-            using (var result = await _client.PostAsync(url, content).ConfigureAwait(false))
+            using (var result = await _client.PostAsync(_baseUri, content).ConfigureAwait(false))
             {
                 return await result.Content.ReadAsStringAsync().ConfigureAwait(false);
             }

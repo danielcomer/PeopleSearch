@@ -5,11 +5,11 @@
     <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{20F77714-9A40-436C-BCB6-1DEF6531A9E5}</ProjectGuid>
+    <ProjectGuid>{7691D3D2-BC6F-4A96-95EF-5DB532DE72C8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PeopleSearch.Model</RootNamespace>
-    <AssemblyName>PeopleSearch.Model</AssemblyName>
+    <RootNamespace>PeopleSearch.ViewModel</RootNamespace>
+    <AssemblyName>PeopleSearch.ViewModel</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -40,12 +40,12 @@
       <Name>PeopleSearch.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\PeopleSearch.Entities\PeopleSearch.Entities.csproj">
-      <Project>{cc0806aa-2e97-4e91-818d-0c8978686ed0}</Project>
+      <Project>{CC0806AA-2E97-4E91-818D-0C8978686ED0}</Project>
       <Name>PeopleSearch.Entities</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Http\PeopleRestfulClient.cs" />
+    <Compile Include="PersonListViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

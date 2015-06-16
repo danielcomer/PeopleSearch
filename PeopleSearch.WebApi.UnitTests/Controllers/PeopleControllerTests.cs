@@ -3,9 +3,9 @@ using PeopleSearch.WebApi.Data;
 using Xunit;
 using PeopleSearch.WebApi.Controllers;
 using System.Collections.Generic;
-using PeopleSearch.WebApi.Data.Entities;
 using Microsoft.AspNet.Mvc;
 using System.Linq;
+using PeopleSearch.Entities;
 
 namespace PeopleSearch.WebApi.UnitTests.Controllers
 {

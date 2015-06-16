@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNet.Mvc;
+using PeopleSearch.Entities;
 using PeopleSearch.WebApi.Data;
-using PeopleSearch.WebApi.Data.Entities;
 
 namespace PeopleSearch.WebApi.Controllers
 {

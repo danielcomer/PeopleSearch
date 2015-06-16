@@ -30,6 +30,14 @@
           "frameworkAssemblies": [],
           "runtimeAssemblies": [],
           "compileAssemblies": []
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {
+            "EntityFramework.Commands": "7.0.0-beta4"
+          },
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -87,6 +95,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/EntityFramework.Commands.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -172,6 +186,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/EntityFramework.Core.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -222,6 +242,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/EntityFramework.Relational.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -276,6 +302,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/EntityFramework.Relational.Design.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -326,6 +358,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/EntityFramework.SqlServer.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -376,6 +414,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/EntityFramework.SqlServer.Design.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -408,6 +452,16 @@
           ]
         },
         "DNXCore,Version=v5.0": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [
+            "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/System.Interactive.Async.dll"
+          ],
+          "compileAssemblies": [
+            "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/System.Interactive.Async.dll"
+          ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
           "dependencies": {},
           "frameworkAssemblies": [],
           "runtimeAssemblies": [
@@ -470,6 +524,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.AspNet.Authentication.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -518,6 +578,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.AspNet.Authorization.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -567,6 +633,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.AspNet.Cors.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -618,6 +690,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.AspNet.Cors.Core.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -667,6 +745,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.AspNet.Cryptography.Internal.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -736,6 +820,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.AspNet.DataProtection.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -789,6 +879,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.AspNet.DataProtection.Interfaces.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -844,6 +940,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.AspNet.Diagnostics.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -886,6 +988,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.AspNet.Diagnostics.Interfaces.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -934,6 +1042,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.AspNet.FeatureModel.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -986,6 +1100,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.AspNet.FileProviders.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -1033,6 +1153,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.AspNet.FileProviders.Interfaces.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -1094,6 +1220,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.AspNet.Hosting.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -1144,6 +1276,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.AspNet.Hosting.Interfaces.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -1202,6 +1340,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.AspNet.Http.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -1271,6 +1415,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.AspNet.Http.Core.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -1326,6 +1476,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.AspNet.Http.Extensions.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -1372,6 +1528,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.AspNet.Http.Interfaces.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -1423,6 +1585,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.AspNet.JsonPatch.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -1481,6 +1649,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.AspNet.Loader.IIS.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -1504,6 +1678,12 @@
           "compileAssemblies": []
         },
         "DNXCore,Version=v5.0": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
           "dependencies": {},
           "frameworkAssemblies": [],
           "runtimeAssemblies": [],
@@ -1557,6 +1737,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.AspNet.Mvc.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -1626,6 +1812,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.AspNet.Mvc.Core.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -1686,6 +1878,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.AspNet.Mvc.ModelBinding.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -1746,6 +1944,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.AspNet.Mvc.Razor.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -1797,6 +2001,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.AspNet.Mvc.Razor.Host.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -1841,6 +2051,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.AspNet.PageExecutionInstrumentation.Interfaces.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -1895,6 +2111,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.AspNet.Razor.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -1943,6 +2165,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.AspNet.Razor.Runtime.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -1995,6 +2223,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.AspNet.Routing.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -2021,6 +2255,15 @@
           "compileAssemblies": []
         },
         "DNXCore,Version=v5.0": {
+          "dependencies": {
+            "Microsoft.AspNet.Loader.IIS.Interop": "1.0.0-beta4",
+            "Microsoft.AspNet.Loader.IIS": "1.0.0-beta4"
+          },
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
           "dependencies": {
             "Microsoft.AspNet.Loader.IIS.Interop": "1.0.0-beta4",
             "Microsoft.AspNet.Loader.IIS": "1.0.0-beta4"
@@ -2078,6 +2321,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.AspNet.StaticFiles.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -2128,6 +2377,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.AspNet.WebUtilities.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -2153,6 +2408,12 @@
           "compileAssemblies": []
         },
         "DNXCore,Version=v5.0": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
           "dependencies": {},
           "frameworkAssemblies": [],
           "runtimeAssemblies": [],
@@ -2205,6 +2466,16 @@
           "compileAssemblies": [
             "lib/portable-net45+win8/Microsoft.CodeAnalysis.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {
+            "System.Collections.Immutable": "[1.1.33-beta]",
+            "System.Reflection.Metadata": "[1.0.18-beta]",
+            "Microsoft.CodeAnalysis.Analyzers": "[1.0.0-rc2]"
+          },
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -2249,6 +2520,14 @@
           "compileAssemblies": [
             "lib/portable-net45+win8/Microsoft.CodeAnalysis.CSharp.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {
+            "Microsoft.CodeAnalysis.Common": "[1.0.0-rc2]"
+          },
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -2308,6 +2587,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.Framework.ApplicationHost.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -2350,6 +2635,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.Framework.Caching.Interfaces.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -2400,6 +2691,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.Framework.Caching.Memory.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -2445,6 +2742,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.Framework.CommandLineUtils.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -2503,6 +2806,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.Framework.ConfigurationModel.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -2555,6 +2864,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.Framework.ConfigurationModel.Interfaces.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -2605,6 +2920,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.Framework.ConfigurationModel.Json.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -2656,6 +2977,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.Framework.DependencyInjection.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -2708,6 +3035,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.Framework.DependencyInjection.Interfaces.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -2765,6 +3098,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.Framework.Logging.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -2818,6 +3157,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.Framework.Logging.Interfaces.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -2871,6 +3216,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.Framework.OptionsModel.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -2957,6 +3308,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.Framework.Runtime.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -3004,6 +3361,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.Framework.Runtime.Interfaces.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -3054,6 +3417,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.Framework.Runtime.Loader.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -3101,6 +3470,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.Framework.Runtime.Roslyn.Common.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -3148,6 +3523,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.Framework.Runtime.Roslyn.Interfaces.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -3192,6 +3573,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.Framework.TestAdapter.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -3251,6 +3638,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.Framework.TestHost.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -3300,6 +3693,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.Framework.WebEncoders.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -3349,6 +3748,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.Framework.WebEncoders.Core.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -3398,6 +3803,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/Microsoft.Net.Http.Headers.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -3431,6 +3842,12 @@
           "frameworkAssemblies": [],
           "runtimeAssemblies": [],
           "compileAssemblies": []
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -3460,6 +3877,16 @@
           ]
         },
         "DNXCore,Version=v5.0": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [
+            "lib/portable-net45+wp80+win8+wpa81+aspnetcore50/Newtonsoft.Json.dll"
+          ],
+          "compileAssemblies": [
+            "lib/portable-net45+wp80+win8+wpa81+aspnetcore50/Newtonsoft.Json.dll"
+          ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
           "dependencies": {},
           "frameworkAssemblies": [],
           "runtimeAssemblies": [
@@ -3514,6 +3941,16 @@
           "compileAssemblies": [
             "lib/portable-net45+win+wpa81+wp80/Remotion.Linq.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [
+            "lib/portable-net45+win+wpa81+wp80/Remotion.Linq.dll"
+          ],
+          "compileAssemblies": [
+            "lib/portable-net45+win+wpa81+wp80/Remotion.Linq.dll"
+          ]
         }
       },
       "files": [
@@ -3555,6 +3992,18 @@
           "compileAssemblies": [
             "lib/contract/System.Collections.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {
+            "System.Runtime": "4.0.20-beta-22816"
+          },
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [
+            "lib/portable-wpa81+wp80+win80+net45+aspnetcore50/System.Collections.dll"
+          ],
+          "compileAssemblies": [
+            "lib/contract/System.Collections.dll"
+          ]
         }
       },
       "files": [
@@ -3583,6 +4032,16 @@
           ]
         },
         "DNXCore,Version=v5.0": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [
+            "lib/portable-net45+win8+wp8+wpa81/System.Collections.Immutable.dll"
+          ],
+          "compileAssemblies": [
+            "lib/portable-net45+win8+wp8+wpa81/System.Collections.Immutable.dll"
+          ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
           "dependencies": {},
           "frameworkAssemblies": [],
           "runtimeAssemblies": [
@@ -3634,6 +4093,19 @@
           "compileAssemblies": [
             "lib/contract/System.Linq.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {
+            "System.Collections": "4.0.10-beta-22816",
+            "System.Runtime": "4.0.20-beta-22816"
+          },
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [
+            "lib/portable-wpa81+wp80+win80+net45+aspnetcore50/System.Linq.dll"
+          ],
+          "compileAssemblies": [
+            "lib/contract/System.Linq.dll"
+          ]
         }
       },
       "files": [
@@ -3674,6 +4146,14 @@
           "compileAssemblies": [
             "lib/portable-net45+win8/System.Reflection.Metadata.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {
+            "System.Collections.Immutable": "1.1.33-beta"
+          },
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -3709,6 +4189,16 @@
           "frameworkAssemblies": [],
           "runtimeAssemblies": [
             "lib/aspnetcore50/System.Runtime.dll"
+          ],
+          "compileAssemblies": [
+            "lib/contract/System.Runtime.dll"
+          ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [
+            "lib/portable-wpa81+wp80+win80+net45+aspnetcore50/System.Runtime.dll"
           ],
           "compileAssemblies": [
             "lib/contract/System.Runtime.dll"
@@ -3759,6 +4249,19 @@
           "compileAssemblies": [
             "lib/contract/System.Threading.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {
+            "System.Runtime": "4.0.20-beta-22816",
+            "System.Threading.Tasks": "4.0.10-beta-22816"
+          },
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [
+            "lib/portable-wpa81+wp80+win80+net45+aspnetcore50/System.Threading.dll"
+          ],
+          "compileAssemblies": [
+            "lib/contract/System.Threading.dll"
+          ]
         }
       },
       "files": [
@@ -3802,6 +4305,18 @@
           "compileAssemblies": [
             "lib/contract/System.Threading.Tasks.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {
+            "System.Runtime": "4.0.20-beta-22816"
+          },
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [
+            "lib/portable-wpa81+wp80+win80+net45+aspnetcore50/System.Threading.Tasks.dll"
+          ],
+          "compileAssemblies": [
+            "lib/contract/System.Threading.Tasks.dll"
+          ]
         }
       },
       "files": [
@@ -3836,6 +4351,15 @@
           "frameworkAssemblies": [],
           "runtimeAssemblies": [],
           "compileAssemblies": []
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {
+            "xunit.core": "[2.1.0-beta2-build2981]",
+            "xunit.assert": "[2.1.0-beta2-build2981]"
+          },
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -3859,6 +4383,16 @@
           ]
         },
         "DNXCore,Version=v5.0": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [
+            "lib/portable-net45+win+wpa81+wp80+monotouch+monoandroid+Xamarin.iOS/xunit.abstractions.dll"
+          ],
+          "compileAssemblies": [
+            "lib/portable-net45+win+wpa81+wp80+monotouch+monoandroid+Xamarin.iOS/xunit.abstractions.dll"
+          ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
           "dependencies": {},
           "frameworkAssemblies": [],
           "runtimeAssemblies": [
@@ -3902,6 +4436,16 @@
           "compileAssemblies": [
             "lib/portable-net45+dnxcore50+win+wpa81+wp80+monotouch+monoandroid+Xamarin.iOS/xunit.assert.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [
+            "lib/portable-net45+dnxcore50+win+wpa81+wp80+monotouch+monoandroid+Xamarin.iOS/xunit.assert.dll"
+          ],
+          "compileAssemblies": [
+            "lib/portable-net45+dnxcore50+win+wpa81+wp80+monotouch+monoandroid+Xamarin.iOS/xunit.assert.dll"
+          ]
         }
       },
       "files": [
@@ -3930,6 +4474,14 @@
           "dependencies": {
             "xunit.extensibility.core": "[2.1.0-beta2-build2981]",
             "xunit.extensibility.execution": "[2.1.0-beta2-build2981]"
+          },
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {
+            "xunit.extensibility.core": "[2.1.0-beta2-build2981]"
           },
           "frameworkAssemblies": [],
           "runtimeAssemblies": [],
@@ -3977,6 +4529,18 @@
           ]
         },
         "DNXCore,Version=v5.0": {
+          "dependencies": {
+            "xunit.abstractions": "[2.0.0]"
+          },
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [
+            "lib/portable-net45+dnxcore50+win+wpa81+wp80+monotouch+monoandroid+Xamarin.iOS/xunit.core.dll"
+          ],
+          "compileAssemblies": [
+            "lib/portable-net45+dnxcore50+win+wpa81+wp80+monotouch+monoandroid+Xamarin.iOS/xunit.core.dll"
+          ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
           "dependencies": {
             "xunit.abstractions": "[2.0.0]"
           },
@@ -4049,6 +4613,14 @@
           "compileAssemblies": [
             "lib/dnxcore50/xunit.execution.dnx.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {
+            "xunit.extensibility.core": "[2.1.0-beta2-build2981]"
+          },
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -4143,6 +4715,12 @@
           "compileAssemblies": [
             "lib/dnxcore50/xunit.runner.dnx.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [
@@ -4201,6 +4779,14 @@
           "compileAssemblies": [
             "lib/dnxcore50/xunit.runner.utility.dnx.dll"
           ]
+        },
+        ".NETPortable,Version=v4.5,Profile=Profile111": {
+          "dependencies": {
+            "xunit.abstractions": "[2.0.0]"
+          },
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
         }
       },
       "files": [

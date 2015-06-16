@@ -6,8 +6,8 @@ using Microsoft.Data.Entity;
 using Microsoft.Framework.ConfigurationModel;
 using Microsoft.Framework.DependencyInjection;
 using Microsoft.Framework.Logging;
+using PeopleSearch.Entities;
 using PeopleSearch.WebApi.Data;
-using PeopleSearch.WebApi.Data.Entities;
 
 namespace PeopleSearch.WebApi
 {

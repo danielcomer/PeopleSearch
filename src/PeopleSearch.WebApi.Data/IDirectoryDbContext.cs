@@ -1,5 +1,5 @@
 ﻿using Microsoft.Data.Entity;
-using PeopleSearch.WebApi.Data.Entities;
+using PeopleSearch.Entities;
 
 namespace PeopleSearch.WebApi.Data
 {

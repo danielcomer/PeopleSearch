@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using Microsoft.Framework.ConfigurationModel;
 
 namespace PeopleSearch.Wpf.Client
 {
@@ -13,5 +14,14 @@ namespace PeopleSearch.Wpf.Client
     /// </summary>
     public partial class App : Application
     {
+        private IConfiguration _configuration;
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            _configuration = new Configuration()
+                .AddCommandLine(e.Args);
+
+            base.OnStartup(e);
+        }
     }
 }

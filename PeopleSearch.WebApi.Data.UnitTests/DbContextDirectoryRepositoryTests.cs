@@ -2,7 +2,7 @@
 using System.Linq;
 using Microsoft.Data.Entity;
 using Moq;
-using PeopleSearch.WebApi.Data.Entities;
+using PeopleSearch.Entities;
 using Xunit;
 
 namespace PeopleSearch.WebApi.Data.UnitTests

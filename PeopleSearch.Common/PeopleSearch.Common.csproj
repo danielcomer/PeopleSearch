@@ -35,14 +35,16 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
-    <Folder Include="Mvvm\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\IConfigurationProvider.cs" />
+    <Compile Include="Core\PropertyChangedNotifier.cs" />
     <Compile Include="Http\HttpClientWrapper.cs" />
     <Compile Include="Http\IHttpClient.cs" />
     <Compile Include="Http\IRestfulClient.cs" />
     <Compile Include="Http\SimpleJsonRestfulClient.cs" />
+    <Compile Include="Mvvm\RelayCommand.cs" />
+    <Compile Include="Mvvm\ViewModelBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

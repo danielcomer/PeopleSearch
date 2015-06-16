@@ -3,8 +3,8 @@ using Microsoft.Data.Entity;
 using Microsoft.Data.Entity.Metadata;
 using Microsoft.Data.Entity.Metadata.Builders;
 using Microsoft.Data.Entity.Relational.Migrations.Infrastructure;
+using PeopleSearch.Entities;
 using PeopleSearch.WebApi.Data;
-using PeopleSearch.WebApi.Data.Entities;
 
 namespace PeopleSearch.WebApi.Data.Migrations
 {
@@ -13,7 +13,7 @@ namespace PeopleSearch.WebApi.Data.Migrations
     {
         public override string Id
         {
-            get { return "20150615122816_initial"; }
+            get { return "20150616040714_initial"; }
         }
         
         public override string ProductVersion
@@ -28,7 +28,7 @@ namespace PeopleSearch.WebApi.Data.Migrations
                 var builder = new BasicModelBuilder()
                     .Annotation("SqlServer:ValueGeneration", "Sequence");
                 
-                builder.Entity("PeopleSearch.WebApi.Data.Entities.Address", b =>
+                builder.Entity("PeopleSearch.Entities.Address", b =>
                     {
                         b.Property<string>("City")
                             .Annotation("MaxLength", 30)
@@ -51,7 +51,7 @@ namespace PeopleSearch.WebApi.Data.Migrations
                         b.Key("Id");
                     });
                 
-                builder.Entity("PeopleSearch.WebApi.Data.Entities.Person", b =>
+                builder.Entity("PeopleSearch.Entities.Person", b =>
                     {
                         b.Property<string>("FirstName")
                             .Annotation("MaxLength", 30)
@@ -71,9 +71,9 @@ namespace PeopleSearch.WebApi.Data.Migrations
                         b.Key("Id");
                     });
                 
-                builder.Entity("PeopleSearch.WebApi.Data.Entities.Person", b =>
+                builder.Entity("PeopleSearch.Entities.Person", b =>
                     {
-                        b.ForeignKey("PeopleSearch.WebApi.Data.Entities.Address", "HomeAddressId");
+                        b.ForeignKey("PeopleSearch.Entities.Address", "HomeAddressId");
                     });
                 
                 return builder.Model;

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Data.Entity;
 using Microsoft.Framework.ConfigurationModel;
-using PeopleSearch.WebApi.Data.Entities;
+using PeopleSearch.Entities;
 
 namespace PeopleSearch.WebApi.Data
 {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using PeopleSearch.WebApi.Data.Entities;
+using PeopleSearch.Entities;
 
 namespace PeopleSearch.WebApi.Data
 {
