@@ -71,7 +71,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ViewModels\PersonListViewModel.cs" />
     <Compile Include="Views\PersonListView.xaml.cs">
       <DependentUpon>PersonListView.xaml</DependentUpon>
     </Compile>

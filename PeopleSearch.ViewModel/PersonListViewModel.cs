@@ -8,15 +8,12 @@ namespace PeopleSearch.ViewModel
     {
         private readonly SimpleJsonRestfulClient<Person> _peopleRestClient;
 
-        private string _loadingString = "";
+        private string _loadingString = string.Empty;
 
         public string LoadingString
         {
             get { return _loadingString; }
-            set
-            {
-                SetValue(ref _loadingString, value);
-            }
+            set { SetValue(ref _loadingString, value); }
         }
 
         public PersonListViewModel(SimpleJsonRestfulClient<Person> peopleRestClient)

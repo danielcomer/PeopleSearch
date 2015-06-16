@@ -43,6 +43,7 @@
     <Compile Include="Http\IHttpClient.cs" />
     <Compile Include="Http\IRestfulClient.cs" />
     <Compile Include="Http\SimpleJsonRestfulClient.cs" />
+    <Compile Include="Mvvm\ILoadingStatusService.cs" />
     <Compile Include="Mvvm\RelayCommand.cs" />
     <Compile Include="Mvvm\ViewModelBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
