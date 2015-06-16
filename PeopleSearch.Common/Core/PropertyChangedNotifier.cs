@@ -8,7 +8,7 @@ namespace PeopleSearch.Common.Core
 {
     public abstract class PropertyChangedNotifier : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged = delegate { }; 
 
         protected void SetValue<T>(ref T value, T newValue, [CallerMemberName] string propertyName = null)
         {
@@ -28,7 +28,7 @@ namespace PeopleSearch.Common.Core
 
             VerifyProperty(propertyName);
 
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         [Conditional("DEBUG")]
