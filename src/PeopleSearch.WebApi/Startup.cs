@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
 using Microsoft.Data.Entity;
@@ -31,13 +32,28 @@ namespace PeopleSearch.WebApi
 
             services.AddInstance(Configuration);
             services.AddScoped<IDirectoryDbContext, DirectoryDbContext>();
-            services.AddScoped<IDirectoryRepository, DbContextDirectoryRepository>();
+            services.AddScoped(DirectoryRepositoryImplementationFactory);
+        }
+
+        private IDirectoryRepository DirectoryRepositoryImplementationFactory(IServiceProvider serviceProvider)
+        {
+            var dbContext = (IDirectoryDbContext)serviceProvider.GetService(typeof(IDirectoryDbContext));
+            var repository = new DbContextDirectoryRepository(dbContext);
+
+            var delay = int.Parse(Configuration["Services:RepositorySimulatedDelayInMilliseconds"]);
+
+            if (delay <= 0)
+            {
+                return repository;
+            }
+
+            return new DelaySimulatedDirectoryRepositoryDecorator(repository, delay);
         }
 
         /// <remarks>
         /// Seed Data Generation isn't possible in EF7 yet
         /// </remarks>
-        private void GenerateSeedData(DirectoryDbContext context)
+        private static void GenerateSeedData(DirectoryDbContext context)
         {
             if (context.People.FirstOrDefault() == null)
             {

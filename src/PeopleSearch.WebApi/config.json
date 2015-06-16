@@ -3,5 +3,11 @@
     "DefaultConnection": {
       "ConnectionString": "Server=localhost;Database=peoplesearchdb;Integrated Security=True;"
     }
+  },
+  "Services": {
+    "RepositorySimulatedDelayInMilliseconds": 0
+  },
+  "RestServices": {
+    "PeopleBaseUrl" : "http://localhost:8239/api/people/"
   }
 }
