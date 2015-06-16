@@ -13,9 +13,20 @@ namespace PeopleSearch.WebApi.Data.UnitTests
         private readonly Mock<DirectoryDbContext> _mockContext;
         private readonly DbContextDirectoryRepository _repository;
 
+        private readonly List<Person> _people;
+        private readonly Person _person1;
+        private readonly Person _person2;
+
         public DbContextDirectoryRepositoryTests()
         {
+            _person1 = new Person {Id = 1, FirstName = "FirstName1", LastName = "LastName1"};
+            _person2 = new Person {Id = 2, FirstName = "FirstName2", LastName = "LastName2" };
+
+            _people = new List<Person> {_person1, _person2};
+
             _mockPersonSet = new Mock<DbSet<Person>>();
+            _mockPersonSet.Returns(_people);
+
             _mockContext = new Mock<DirectoryDbContext>();
             _repository = new DbContextDirectoryRepository(_mockContext.Object);
         }
@@ -23,48 +34,31 @@ namespace PeopleSearch.WebApi.Data.UnitTests
         [Fact]
         public void GetAllPeople_ReturnsAllPeople()
         {
-            _mockPersonSet.DbSetReturns(new List<Person>
-            {
-                new Person {Id = 1},
-                new Person {Id = 2}
-            });
-            
             _mockContext.Setup(c => c.People).Returns(_mockPersonSet.Object);
 
             var peopleResult = _repository.GetAllPeople().ToList();
 
             Assert.NotNull(peopleResult);
-            Assert.Equal(2, peopleResult.Count());
-            Assert.Equal(1, peopleResult.First().Id);
-            Assert.Equal(2, peopleResult.Last().Id);
+
+            Assert.True(_people.IsEqualTo(peopleResult));
         }
 
         [Fact]
         public void GetPerson_ReturnsCorrectPerson()
         {
-            _mockPersonSet.DbSetReturns(new List<Person>
-            {
-                new Person {Id = 1},
-                new Person {Id = 2}
-            });
-
             _mockContext.Setup(c => c.People).Returns(_mockPersonSet.Object);
 
-            var personResult = _repository.GetPerson(1);
+            var person1Result = _repository.GetPerson(1);
+            var person3Result = _repository.GetPerson(3);
 
-            Assert.NotNull(personResult);
-            Assert.Equal(1, personResult.Id);
+            Assert.Null(person3Result);
+            Assert.NotNull(person1Result);
+            Assert.True(_person1.IsEqualTo(person1Result));
         }
 
         [Fact]
         public void AddPerson_AddsCorrectPerson_AndReturnsThePerson()
         {
-            _mockPersonSet.DbSetReturns(new List<Person>
-            {
-                new Person {Id = 1},
-                new Person {Id = 2}
-            });
-
             _mockContext.Setup(c => c.SaveChanges()).Returns(1);
             _mockContext.Setup(c => c.People).Returns(_mockPersonSet.Object);
 
@@ -76,22 +70,27 @@ namespace PeopleSearch.WebApi.Data.UnitTests
         }
 
         [Fact]
+        public void AddPerson_WhenSaveChangesReturns0_ReturnsNull()
+        {
+            _mockContext.Setup(c => c.SaveChanges()).Returns(0);
+            _mockContext.Setup(c => c.People).Returns(_mockPersonSet.Object);
+
+            var person = new Person { Id = 3 };
+            var personResult = _repository.AddPerson(person);
+
+            Assert.Null(personResult);
+        }
+
+        [Fact]
         public void DeletePerson_DeletesCorrectPerson_AndReturnsCorrectValue()
         {
-            _mockPersonSet.DbSetReturns(new List<Person>
-            {
-                new Person {Id = 1},
-                new Person {Id = 2}
-            });
-
             _mockContext.Setup(c => c.SaveChanges()).Returns(1);
             _mockContext.Setup(c => c.People).Returns(_mockPersonSet.Object);
 
-            var person1Deleted = _repository.DeletePerson(1);
-            var person3Deleted = _repository.DeletePerson(3);
+            Assert.True(_repository.DeletePerson(1));
+            Assert.False(_repository.DeletePerson(3));
 
-            Assert.True(person1Deleted);
-            Assert.False(person3Deleted);
+            _mockContext.Verify(c => c.SaveChanges(), Times.Exactly(1));
         }
     }
 }

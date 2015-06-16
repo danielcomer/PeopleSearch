@@ -7,11 +7,50 @@
       "xunit >= 2.1.0-beta2-build2981",
       "xunit.runner.dnx >= 2.1.0-beta2-build79",
       "Moq >= 4.2.1502.911",
-      "PeopleSearch.WebApi.Data >= 1.0.0-*"
+      "PeopleSearch.WebApi.Data >= 1.0.0-*",
+      "CompareNETObjects >= 3.2.0"
     ],
     "DNX,Version=v4.5.1": []
   },
   "libraries": {
+    "CompareNETObjects/3.02.0.0": {
+      "serviceable": false,
+      "sha": "/3uGsyvURrn1tvTjDZtHYyrf1wy+vSdEAgZiuC6fJZ0Lm4mVNSQts1XmCK0T5z81C8jaRG/cGDslqw4rwSst0w==",
+      "frameworks": {
+        "DNX,Version=v4.5.1": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [
+            "lib/net451/KellermanSoftware.Compare-NET-Objects.dll"
+          ],
+          "compileAssemblies": [
+            "lib/net451/KellermanSoftware.Compare-NET-Objects.dll"
+          ]
+        },
+        "DNXCore,Version=v5.0": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
+        }
+      },
+      "files": [
+        "CompareNETObjects.3.02.0.0.nupkg",
+        "CompareNETObjects.3.02.0.0.nupkg.sha512",
+        "CompareNETObjects.nuspec",
+        "readme.txt",
+        "lib/net35/KellermanSoftware.Compare-NET-Objects.dll",
+        "lib/net35/KellermanSoftware.Compare-NET-Objects.xml",
+        "lib/net40/KellermanSoftware.Compare-NET-Objects.dll",
+        "lib/net40/KellermanSoftware.Compare-NET-Objects.xml",
+        "lib/net45/KellermanSoftware.Compare-NET-Objects.dll",
+        "lib/net45/KellermanSoftware.Compare-NET-Objects.xml",
+        "lib/net451/KellermanSoftware.Compare-NET-Objects.dll",
+        "lib/net451/KellermanSoftware.Compare-NET-Objects.xml",
+        "lib/portable-net4+sl5+wp8+win8/KellermanSoftware.Compare-NET-Objects-Portable.dll",
+        "lib/portable-net4+sl5+wp8+win8/KellermanSoftware.Compare-NET-Objects-Portable.xml"
+      ]
+    },
     "EntityFramework/7.0.0-beta4": {
       "serviceable": false,
       "sha": "KTplgz4PBKb33t8O0I5S8yBwkU+l9PTymzoTVav8/FGikck55Amf28EOpOZAqnkGIzCGYD5/k26P7AmVyYyTHw==",
