@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net45+win+wpa81": {
+      "wrappedProject": "../../PeopleSearch.Entities/PeopleSearch.Entities.csproj",
+      "bin": {
+        "assembly": "../../PeopleSearch.Entities/obj/{configuration}/PeopleSearch.Entities.dll",
+        "pdb": "../../PeopleSearch.Entities/obj/{configuration}/PeopleSearch.Entities.pdb"
+      }
+    }
+  }
+}
