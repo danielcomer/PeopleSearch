@@ -104,7 +104,6 @@
     <Compile Include="IoC\NinjectServiceLocator.cs" />
     <Compile Include="IoC\PeopleSearchNinjectModule.cs" />
     <Compile Include="Mvvm\ViewModelLocator.cs" />
-    <Compile Include="Mvvm\WpfDelegateCommand.cs" />
     <Compile Include="Resources\Class1.cs" />
     <Compile Include="Views\PersonSearchView.xaml.cs">
       <DependentUpon>PersonSearchView.xaml</DependentUpon>
