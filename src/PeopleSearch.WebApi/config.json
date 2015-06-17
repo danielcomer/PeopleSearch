@@ -5,7 +5,7 @@
     }
   },
   "Services": {
-    "RepositorySimulatedDelayInMilliseconds": 0
+    "RepositorySimulatedDelayInMilliseconds": 2000
   },
   "RestServices": {
     "PeopleBaseUrl" : "http://localhost:8239/api/people/"

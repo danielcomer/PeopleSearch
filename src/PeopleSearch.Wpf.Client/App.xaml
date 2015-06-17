@@ -1,9 +1,9 @@
 ﻿<Application x:Class="PeopleSearch.Wpf.Client.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:PeopleSearch.Wpf.Client"
+             xmlns:mvvm="clr-namespace:PeopleSearch.Wpf.Client.Mvvm"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+         <mvvm:ViewModelLocator x:Key="ViewModelLocator" />
     </Application.Resources>
 </Application>

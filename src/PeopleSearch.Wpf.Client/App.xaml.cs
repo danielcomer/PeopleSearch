@@ -17,13 +17,9 @@ namespace PeopleSearch.Wpf.Client
     public partial class App : Application
     {
         private IKernel _kernel;
-        //private IConfiguration _configuration;
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            //_configuration = new Configuration()
-            //    .AddCommandLine(e.Args);
-
             _kernel = new StandardKernel(new PeopleSearchNinjectModule());
 
             NinjectServiceLocator.Initialize(_kernel);

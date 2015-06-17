@@ -12,11 +12,13 @@ namespace PeopleSearch.Common.Http
     {
         private readonly IHttpClient _client;
         private readonly DataContractJsonSerializer _serializer;
+        private readonly DataContractJsonSerializer _listSerializer;
         private readonly Uri _baseUri;
 
         protected SimpleJsonRestfulClient(IHttpClient client, string baseUrl)
         {
             _serializer = new DataContractJsonSerializer(typeof(T));
+            _listSerializer = new DataContractJsonSerializer(typeof(IEnumerable<T>));
             _baseUri = new Uri(baseUrl);
             _client = client;
         }
@@ -25,7 +27,7 @@ namespace PeopleSearch.Common.Http
         {
             using (var result = await _client.GetStreamAsync(_baseUri).ConfigureAwait(false))
             {
-                return (IEnumerable<T>)_serializer.ReadObject(result);
+                return (IEnumerable<T>)_listSerializer.ReadObject(result);
             }
         }
 
