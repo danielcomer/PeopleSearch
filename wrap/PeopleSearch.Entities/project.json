@@ -2,10 +2,10 @@
   "version": "1.0.0-*",
   "frameworks": {
     "net45+win+wpa81": {
-      "wrappedProject": "../../PeopleSearch.Entities/PeopleSearch.Entities.csproj",
+      "wrappedProject": "../../src/PeopleSearch.Entities/PeopleSearch.Entities.csproj",
       "bin": {
-        "assembly": "../../PeopleSearch.Entities/obj/{configuration}/PeopleSearch.Entities.dll",
-        "pdb": "../../PeopleSearch.Entities/obj/{configuration}/PeopleSearch.Entities.pdb"
+        "assembly": "../../src/PeopleSearch.Entities/obj/{configuration}/PeopleSearch.Entities.dll",
+        "pdb": "../../src/PeopleSearch.Entities/obj/{configuration}/PeopleSearch.Entities.pdb"
       }
     }
   }

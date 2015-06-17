@@ -16,6 +16,7 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\PeopleSearch.Entities\PeopleSearch.Entities.csproj" />
+    <ProjectReference Include="..\PeopleSearch.Entities\PeopleSearch.Entities.csproj" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\DNX\Microsoft.DNX.targets" Condition="'$(VSToolsPath)' != ''" />
 </Project>
