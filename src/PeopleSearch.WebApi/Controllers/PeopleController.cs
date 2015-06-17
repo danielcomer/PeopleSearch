@@ -5,7 +5,7 @@ using PeopleSearch.WebApi.Data;
 
 namespace PeopleSearch.WebApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("rest/[controller]")]
     public class PeopleController : Controller
     {
         private readonly IDirectoryRepository _directoryRepository;
