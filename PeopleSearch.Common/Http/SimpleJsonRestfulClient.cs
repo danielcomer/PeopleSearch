@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace PeopleSearch.Common.Http
 {
-    public class SimpleJsonRestfulClient<T> : IRestfulClient<T>
+    public abstract class SimpleJsonRestfulClient<T> : IRestfulClient<T>
     {
         private readonly IHttpClient _client;
         private readonly DataContractJsonSerializer _serializer;
         private readonly Uri _baseUri;
 
-        public SimpleJsonRestfulClient(IHttpClient client, string baseUrl)
+        protected SimpleJsonRestfulClient(IHttpClient client, string baseUrl)
         {
             _serializer = new DataContractJsonSerializer(typeof(T));
             _baseUri = new Uri(baseUrl);

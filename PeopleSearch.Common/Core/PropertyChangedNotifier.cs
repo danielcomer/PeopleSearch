@@ -48,12 +48,9 @@ namespace PeopleSearch.Common.Core
         [Conditional("DEBUG")]
         private void VerifyProperty(string propertyName)
         {
-            var type = GetType();
-            var propInfo = type.GetRuntimeProperty(propertyName);
-
-            if (propInfo == null)
+            if (GetType().GetRuntimeProperty(propertyName) == null)
             {
-                throw new ArgumentException("Invalid Property Name", nameof(propertyName));
+                throw new ArgumentException("Invalid Property Name", propertyName);
             }
         }
     }

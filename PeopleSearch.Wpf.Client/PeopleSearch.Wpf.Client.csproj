@@ -51,6 +51,10 @@
       <HintPath>..\packages\Moq.4.2.1502.0911\lib\net40\Moq.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -71,8 +75,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Views\PersonListView.xaml.cs">
-      <DependentUpon>PersonListView.xaml</DependentUpon>
+    <Compile Include="IoC\KernelAlreadyInitializedException.cs" />
+    <Compile Include="IoC\KernelNotInitilizedException.cs" />
+    <Compile Include="IoC\NinjectServiceLocator.cs" />
+    <Compile Include="IoC\PeopleSearchNinjectModule.cs" />
+    <Compile Include="Mvvm\ViewModelLocator.cs" />
+    <Compile Include="Mvvm\WpfDelegateCommand.cs" />
+    <Compile Include="Views\PersonSearchView.xaml.cs">
+      <DependentUpon>PersonSearchView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -87,7 +97,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\PersonListView.xaml">
+    <Page Include="Views\PersonSearchView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -132,6 +142,10 @@
     <ProjectReference Include="..\PeopleSearch.Model\PeopleSearch.Model.csproj">
       <Project>{20f77714-9a40-436c-bcb6-1def6531a9e5}</Project>
       <Name>PeopleSearch.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PeopleSearch.ViewModel\PeopleSearch.ViewModel.csproj">
+      <Project>{7691d3d2-bc6f-4a96-95ef-5db532de72c8}</Project>
+      <Name>PeopleSearch.ViewModel</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
