@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using PeopleSearch.Entities;
+using PeopleSearch.Common.Extensions;
 
 namespace PeopleSearch.WebApi.Data
 {
@@ -15,7 +17,17 @@ namespace PeopleSearch.WebApi.Data
 
         public IEnumerable<Person> GetAllPeople()
         {
-            return _db.People.AsEnumerable();
+            return _db.People
+                .Include(p => p.HomeAddress)
+                .AsEnumerable();
+        }
+
+        public IEnumerable<Person> FindByName(string name)
+        {
+            return _db.People
+                .Include(p => p.HomeAddress)
+                .Where(p => (p.FirstName + p.LastName).Contains(name, StringComparison.CurrentCultureIgnoreCase))
+                .AsEnumerable();
         }
 
         public Person GetPerson(int personId)

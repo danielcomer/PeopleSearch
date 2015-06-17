@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace PeopleSearch.Common.Http
@@ -11,6 +10,6 @@ namespace PeopleSearch.Common.Http
 
         Task<T> Get(int id);
 
-        Task<T> Post(HttpContent content);
+        Task<IEnumerable<T>> Search(string searchTerm, string searchValue);
     }
 }

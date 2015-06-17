@@ -18,6 +18,8 @@ namespace PeopleSearch.WebApi.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            var result = new ObjectResult(_directoryRepository.GetAllPeople() ?? new List<Person>());
+
             return new ObjectResult(_directoryRepository.GetAllPeople() ?? new List<Person>());
         }
 
@@ -32,6 +34,12 @@ namespace PeopleSearch.WebApi.Controllers
             }
 
             return new ObjectResult(person);
+        }
+
+        [Route("search/name/{name}")]
+        public IActionResult GetByName(string name)
+        {
+            return new ObjectResult(_directoryRepository.FindByName(name) ?? new List<Person>());
         }
 
         //[HttpPost]

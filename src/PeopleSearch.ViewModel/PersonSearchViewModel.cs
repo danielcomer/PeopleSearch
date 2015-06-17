@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel;
 using System.Windows.Input;
 using PeopleSearch.Common.Http;
 using PeopleSearch.Common.Mvvm;
@@ -48,14 +47,7 @@ namespace PeopleSearch.ViewModel
 
             ConstructCommands();
 
-            PropertyChanged += HandlePropertyChanged;
-
             People = new ObservableTask<IEnumerable<Person>>(_peopleRestClient.GetAll());
-        }
-
-        private void HandlePropertyChanged(object sender, PropertyChangedEventArgs propertyChangedEventArgs)
-        {
-            ((DelegateCommand) SearchCommand).IsEnabled = !string.IsNullOrEmpty(SearchString);
         }
 
         #endregion
@@ -69,7 +61,14 @@ namespace PeopleSearch.ViewModel
 
         private void ExecuteSearchCommand(object o)
         {
-            People = new ObservableTask<IEnumerable<Person>>(_peopleRestClient.GetAll());
+            if (!string.IsNullOrEmpty(SearchString))
+            {
+                People = new ObservableTask<IEnumerable<Person>>(_peopleRestClient.Search("name", SearchString));
+            }
+            else
+            {
+                People = new ObservableTask<IEnumerable<Person>>(_peopleRestClient.GetAll());
+            }
         }
 
         #endregion

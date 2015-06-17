@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Net.Http;
 using System.Runtime.Serialization.Json;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace PeopleSearch.Common.Http
@@ -31,25 +28,19 @@ namespace PeopleSearch.Common.Http
             }
         }
 
+        public async Task<IEnumerable<T>> Search(string searchTerm, string searchValue)
+        {
+            using (var result = await _client.GetStreamAsync(new Uri(_baseUri, "search/" + searchTerm + "/" + searchValue)).ConfigureAwait(false))
+            {
+                return (IEnumerable<T>)_listSerializer.ReadObject(result);
+            }
+        }
+
         public async Task<T> Get(int id)
         {
             using (var result = await _client.GetStreamAsync(new Uri(_baseUri, id.ToString())).ConfigureAwait(false))
             {
                 return (T)_serializer.ReadObject(result);
-            }
-        }
-
-        public async Task<T> Post(HttpContent content)
-        {
-            var response = await PostString(content).ConfigureAwait(false);
-            return (T)_serializer.ReadObject(new MemoryStream(Encoding.UTF8.GetBytes(response)));
-        }
-
-        private async Task<string> PostString(HttpContent content)
-        {
-            using (var result = await _client.PostAsync(_baseUri, content).ConfigureAwait(false))
-            {
-                return await result.Content.ReadAsStringAsync().ConfigureAwait(false);
             }
         }
         

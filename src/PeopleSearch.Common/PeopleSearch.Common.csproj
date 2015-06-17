@@ -39,6 +39,7 @@
   <ItemGroup>
     <Compile Include="Configuration\IConfigurationProvider.cs" />
     <Compile Include="Core\PropertyChangedNotifier.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Http\HttpClientWrapper.cs" />
     <Compile Include="Http\IHttpClient.cs" />
     <Compile Include="Http\IRestfulClient.cs" />

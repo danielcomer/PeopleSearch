@@ -28,6 +28,12 @@ namespace PeopleSearch.WebApi.Data
             return _decoratedRepository.GetAllPeople();
         }
 
+        public IEnumerable<Person> FindByName(string name)
+        {
+            Thread.Sleep(_delay);
+            return _decoratedRepository.FindByName(name);
+        }
+
         public Person GetPerson(int personId)
         {
             Thread.Sleep(_delay);

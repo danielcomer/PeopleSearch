@@ -12,9 +12,9 @@ namespace PeopleSearch.Entities
 
         public Gender? Gender { get; set; }
 
-        public Address HomeAddress { get; set; }
+        public virtual Address HomeAddress { get; set; }
 
-        public ICollection<string> Interests { get; set; }
+        public virtual ICollection<string> Interests { get; set; }
 
         public Person()
         {

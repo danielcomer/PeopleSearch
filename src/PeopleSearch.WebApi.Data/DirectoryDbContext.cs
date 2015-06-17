@@ -57,6 +57,9 @@ namespace PeopleSearch.WebApi.Data
                 .MaxLength(30)
                 .Required();
 
+            //modelBuilder.Entity<Person>()
+            //    .Reference(p => p.HomeAddress);
+
             base.OnModelCreating(modelBuilder);
         }
     }

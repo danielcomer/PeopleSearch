@@ -15,6 +15,7 @@
     <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PeopleSearch.Common\PeopleSearch.Common.csproj" />
     <ProjectReference Include="..\PeopleSearch.Entities\PeopleSearch.Entities.csproj" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\DNX\Microsoft.DNX.targets" Condition="'$(VSToolsPath)' != ''" />

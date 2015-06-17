@@ -5,7 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:controls="clr-namespace:Jti.EcourtWordAddIn.UI.Controls"
              xmlns:entities="clr-namespace:PeopleSearch.Entities;assembly=PeopleSearch.Entities"
+             xmlns:viewModel="clr-namespace:PeopleSearch.ViewModel;assembly=PeopleSearch.ViewModel"
              mc:Ignorable="d" 
+             d:DataContext="{d:DesignInstance Type=viewModel:FakePersonSearchViewModel, IsDesignTimeCreatable=True}"
              DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=PersonSearchViewModel}"
              d:DesignHeight="400" d:DesignWidth="600">
     <Grid Background="White" Margin="10">
@@ -32,12 +34,59 @@
                 <controls:CircularProgressBar />
                 <Label HorizontalAlignment="Center">Loading</Label>
             </StackPanel>
-            
-            <ListBox ItemsSource="{Binding Path=People.Result}" 
+
+            <ListBox ItemsSource="{Binding Path=People.Result}" HorizontalContentAlignment="Stretch"
                      Visibility="{Binding People.IsSuccessfullyCompleted, Converter={StaticResource BooleanToVisibilityConverter}}">
                 <ListBox.ItemTemplate>
                     <DataTemplate DataType="{x:Type entities:Person}">
-                        <TextBlock Text="{Binding FirstName}" />
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="125" />
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="1*" />
+                            </Grid.ColumnDefinitions>
+
+                            <DockPanel>
+                                <StackPanel DockPanel.Dock="Bottom" HorizontalAlignment="Center" Orientation="Horizontal">
+                                    <TextBlock Text="{Binding FirstName}" FontWeight="Bold" />
+                                    <TextBlock Text="{Binding LastName}" Margin="5,0,0,0" FontWeight="Bold" />
+                                </StackPanel>
+                                <Image Width="64" Height="64">
+                                    <Image.Source>
+                                        <BitmapImage UriSource="/Resources/1.png" ></BitmapImage>
+                                    </Image.Source>
+                                </Image>
+                            </DockPanel>
+                            <Grid Grid.Column="1" Margin="20,0,0,0">
+                                <StackPanel>
+                                    <TextBlock FontWeight="Bold">Address</TextBlock>
+                                    <TextBlock Text="{Binding HomeAddress.StreetLineOne}"></TextBlock>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding HomeAddress.City}"></TextBlock>
+                                        <TextBlock Margin="5,0,0,0" Text="{Binding HomeAddress.StateOrProvince}"></TextBlock>
+                                        <TextBlock>,</TextBlock>
+                                        <TextBlock Margin="5,0,0,0" Text="{Binding HomeAddress.PostalCode}"></TextBlock>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                            <Grid Grid.Column="2" Margin="20,0,0,0">
+                                <StackPanel>
+                                    <TextBlock FontWeight="Bold">Interests</TextBlock>
+                                    <ItemsControl ItemsSource="{Binding Interests}" BorderBrush="Transparent">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding .}" Margin="3,0,0,0"></TextBlock>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <WrapPanel Orientation="Horizontal"/>
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>

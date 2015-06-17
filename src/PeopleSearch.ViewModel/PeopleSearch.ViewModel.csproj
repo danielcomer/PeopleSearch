@@ -45,6 +45,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FakeObservableTask.cs" />
+    <Compile Include="FakePersonSearchViewModel.cs" />
     <Compile Include="PersonSearchViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
