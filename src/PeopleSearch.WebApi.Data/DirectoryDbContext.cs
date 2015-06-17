@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.Entity;
+using Microsoft.Data.Entity.Infrastructure;
 using Microsoft.Framework.ConfigurationModel;
 using PeopleSearch.Entities;
 
@@ -15,6 +16,7 @@ namespace PeopleSearch.WebApi.Data
 
         public virtual DbSet<Person> People { get; set; }
         public virtual DbSet<Address> Addresses { get; set; }
+        public virtual DbSet<TextOption> TextOptions { get; set; }
 
         /// <remarks>
         /// provided for migrations
@@ -57,8 +59,8 @@ namespace PeopleSearch.WebApi.Data
                 .MaxLength(30)
                 .Required();
 
-            //modelBuilder.Entity<Person>()
-            //    .Reference(p => p.HomeAddress);
+            modelBuilder.Entity<Person>()
+                .Collection(p => p.Interests);
 
             base.OnModelCreating(modelBuilder);
         }

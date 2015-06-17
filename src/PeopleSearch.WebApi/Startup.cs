@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
@@ -117,7 +118,21 @@ namespace PeopleSearch.WebApi
 
                 context.SaveChanges();
 
-                context.People.Add(new Person { Id = 1, FirstName = "Susan", LastName = "Nicholson", Gender = Gender.Female, HomeAddress = a1.Entity });
+                var p1 = new Person
+                {
+                    Id = 1,
+                    FirstName = "Susan",
+                    LastName = "Nicholson",
+                    Gender = Gender.Female,
+                    HomeAddress = a1.Entity
+                };
+
+                p1.Interests = new List<TextOption>
+                {
+                    new TextOption {Text = "Hobby 1"}
+                };
+
+                context.People.Add(p1);
                 context.People.Add(new Person { Id = 2, FirstName = "Albert", LastName = "Porter", Gender = Gender.Male, HomeAddress = a2.Entity });
                 context.People.Add(new Person { Id = 3, FirstName = "Helen", LastName = "Short", Gender = Gender.Female, HomeAddress = a3.Entity });
                 context.People.Add(new Person { Id = 4, FirstName = "Wendell", LastName = "Ford", Gender = Gender.Male, HomeAddress = a4.Entity });
@@ -125,6 +140,8 @@ namespace PeopleSearch.WebApi
                 context.People.Add(new Person { Id = 6, FirstName = "Roberto", LastName = "Peloquin", Gender = Gender.Male, HomeAddress = a6.Entity });
                 context.People.Add(new Person { Id = 7, FirstName = "Carrie", LastName = "Crawford", Gender = Gender.Female, HomeAddress = a7.Entity });
                 context.People.Add(new Person { Id = 8, FirstName = "Linwood", LastName = "McCarter", Gender = Gender.Female, HomeAddress = a8.Entity });
+
+                context.TextOptions.Add(p1.Interests.First());
 
                 context.SaveChanges();
             }

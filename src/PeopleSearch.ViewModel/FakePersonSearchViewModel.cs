@@ -95,7 +95,7 @@ namespace PeopleSearch.ViewModel
             people.Add(new Person { Id = 7, FirstName = "Carrie", LastName = "Crawford", Gender = Gender.Female, HomeAddress = a7 });
             people.Add(new Person { Id = 8, FirstName = "Linwood", LastName = "McCarter", Gender = Gender.Female, HomeAddress = a8 });
 
-            people.First().Interests = new List<string> {"Camping", "Hiking", "Fishing"};
+            people.First().Interests = new List<string> {"Camping", "Hiking", "Fishing", "Acting", "Astrology", "Baseball", "Basketball", "BoardGames", "Bridge Building", "Casino Gambling" }.Select(str => new TextOption { Text = str }).ToList();
 
             return people;
         }

@@ -32,7 +32,9 @@ namespace PeopleSearch.WebApi.Data
 
         public Person GetPerson(int personId)
         {
-            return _db.People.FirstOrDefault(p => p.Id == personId);
+            return _db.People
+                .Include(p => p.HomeAddress)
+                .FirstOrDefault(p => p.Id == personId);
         }
 
         public Person AddPerson(Person person)

@@ -61,9 +61,28 @@ namespace PeopleSearch.WebApi.Data.Migrations
                         b.Key("Id");
                     });
                 
+                builder.Entity("PeopleSearch.Entities.TextOption", b =>
+                    {
+                        b.Property<int>("Id")
+                            .GenerateValueOnAdd()
+                            .Annotation("OriginalValueIndex", 0)
+                            .Annotation("SqlServer:ValueGeneration", "Default");
+                        b.Property<int?>("PersonId")
+                            .Annotation("OriginalValueIndex", 1)
+                            .Annotation("ShadowIndex", 0);
+                        b.Property<string>("Text")
+                            .Annotation("OriginalValueIndex", 2);
+                        b.Key("Id");
+                    });
+                
                 builder.Entity("PeopleSearch.Entities.Person", b =>
                     {
                         b.ForeignKey("PeopleSearch.Entities.Address", "HomeAddressId");
+                    });
+                
+                builder.Entity("PeopleSearch.Entities.TextOption", b =>
+                    {
+                        b.ForeignKey("PeopleSearch.Entities.Person", "PersonId");
                     });
                 
                 return builder.Model;

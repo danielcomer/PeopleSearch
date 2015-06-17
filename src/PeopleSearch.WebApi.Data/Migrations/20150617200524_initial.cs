@@ -49,6 +49,23 @@ namespace PeopleSearch.WebApi.Data.Migrations
                         referencedTable: "Address",
                         referencedColumn: "Id");
                 });
+            migration.CreateTable(
+                name: "TextOption",
+                columns: table => new
+                {
+                    Id = table.Column(type: "int", nullable: false),
+                    PersonId = table.Column(type: "int", nullable: true),
+                    Text = table.Column(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TextOption", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_TextOption_Person_PersonId",
+                        columns: x => x.PersonId,
+                        referencedTable: "Person",
+                        referencedColumn: "Id");
+                });
         }
         
         public override void Down(MigrationBuilder migration)
@@ -56,6 +73,7 @@ namespace PeopleSearch.WebApi.Data.Migrations
             migration.DropSequence("DefaultSequence");
             migration.DropTable("Address");
             migration.DropTable("Person");
+            migration.DropTable("TextOption");
         }
     }
 }
