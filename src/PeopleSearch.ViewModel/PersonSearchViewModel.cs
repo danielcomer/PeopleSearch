@@ -15,24 +15,22 @@ namespace PeopleSearch.ViewModel
 
         private readonly SimpleJsonRestfulClient<Person> _peopleRestClient;
 
-        private List<Person> _people;
+        //private List<Person> _people;
         private string _loadingMessage = string.Empty;
         private string _searchString = string.Empty;
+        private ObservableTask<IEnumerable<Person>> _people;
 
         #endregion
 
         #region Public Properties
 
-        public string LoadingMessage
-        {
-            get { return _loadingMessage; }
-            set { SetValue(ref _loadingMessage, value, new [] { nameof(IsLoading) } ); }
-        }
+        //public string LoadingMessage
+        //{
+        //    get { return _loadingMessage; }
+        //    set { SetValue(ref _loadingMessage, value, new [] { nameof(IsLoading) } ); }
+        //}
 
-        public bool IsLoading
-        {
-            get { return !string.IsNullOrEmpty(LoadingMessage); }
-        }
+        //public bool IsLoading => !string.IsNullOrEmpty(LoadingMessage);
 
         public string SearchString
         {
@@ -40,10 +38,17 @@ namespace PeopleSearch.ViewModel
             set { SetValue(ref _searchString, value); }
         }
 
-        public List<Person> People
+        //public List<Person> People
+        //{
+        //    get { return _people; }
+        //    set { SetValue(ref _people, value); }
+        //}
+
+
+        public ObservableTask<IEnumerable<Person>> People
         {
             get { return _people; }
-            set { SetValue(ref _people, value); }
+            private set { SetValue(ref _people, value); }
         }
 
         #endregion
@@ -76,13 +81,12 @@ namespace PeopleSearch.ViewModel
 
         private void ConstructCommands()
         {
-            SearchCommand = new AsyncDelegateCommand(ExecuteSearchCommand);
+            SearchCommand = new DelegateCommand(ExecuteSearchCommand);
         }
 
-        private async Task ExecuteSearchCommand(object o)
+        private void ExecuteSearchCommand(object o)
         {
-            var results = await _peopleRestClient.GetAll();
-            People = results.ToList();
+            People = new ObservableTask<IEnumerable<Person>>(_peopleRestClient.GetAll());
         }
 
         #endregion

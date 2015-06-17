@@ -10,6 +10,7 @@ namespace PeopleSearch.Wpf.Client.IoC
     {
         public override void Load()
         {
+            Bind<IHttpClient>().To<HttpClientWrapper>().InTransientScope();
             Bind<SimpleJsonRestfulClient<Person>>().To<PeopleRestfulClient>().InSingletonScope();
             Bind<PersonSearchViewModel>().ToSelf().InTransientScope();
         }

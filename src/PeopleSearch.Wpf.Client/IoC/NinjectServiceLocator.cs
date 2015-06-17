@@ -1,5 +1,4 @@
 ﻿using Ninject;
-using Ninject.Modules;
 
 namespace PeopleSearch.Wpf.Client.IoC
 {
