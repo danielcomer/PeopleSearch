@@ -75,7 +75,7 @@
                                     <ItemsControl ItemsSource="{Binding Interests}" BorderBrush="Transparent">
                                         <ItemsControl.ItemTemplate>
                                             <DataTemplate>
-                                                <TextBlock Text="{Binding .}" Margin="3,0,0,0"></TextBlock>
+                                                <TextBlock Text="{Binding Text}" Margin="3,0,0,0"></TextBlock>
                                             </DataTemplate>
                                         </ItemsControl.ItemTemplate>
                                         <ItemsControl.ItemsPanel>
