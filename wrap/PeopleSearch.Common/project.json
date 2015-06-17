@@ -2,10 +2,10 @@
   "version": "1.0.0-*",
   "frameworks": {
     "net45+win+wpa81": {
-      "wrappedProject": "../../PeopleSearch.Common/PeopleSearch.Common.csproj",
+      "wrappedProject": "../../src/PeopleSearch.Common/PeopleSearch.Common.csproj",
       "bin": {
-        "assembly": "../../PeopleSearch.Common/obj/{configuration}/PeopleSearch.Common.dll",
-        "pdb": "../../PeopleSearch.Common/obj/{configuration}/PeopleSearch.Common.pdb"
+        "assembly": "../../src/PeopleSearch.Common/obj/{configuration}/PeopleSearch.Common.dll",
+        "pdb": "../../src/PeopleSearch.Common/obj/{configuration}/PeopleSearch.Common.pdb"
       }
     }
   }

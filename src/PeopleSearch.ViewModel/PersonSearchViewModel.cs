@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using PeopleSearch.Common.Http;
 using PeopleSearch.Common.Mvvm;
@@ -15,35 +13,18 @@ namespace PeopleSearch.ViewModel
 
         private readonly SimpleJsonRestfulClient<Person> _peopleRestClient;
 
-        //private List<Person> _people;
-        private string _loadingMessage = string.Empty;
         private string _searchString = string.Empty;
         private ObservableTask<IEnumerable<Person>> _people;
 
         #endregion
 
         #region Public Properties
-
-        //public string LoadingMessage
-        //{
-        //    get { return _loadingMessage; }
-        //    set { SetValue(ref _loadingMessage, value, new [] { nameof(IsLoading) } ); }
-        //}
-
-        //public bool IsLoading => !string.IsNullOrEmpty(LoadingMessage);
-
+        
         public string SearchString
         {
             get { return _searchString; }
             set { SetValue(ref _searchString, value); }
         }
-
-        //public List<Person> People
-        //{
-        //    get { return _people; }
-        //    set { SetValue(ref _people, value); }
-        //}
-
 
         public ObservableTask<IEnumerable<Person>> People
         {
