@@ -16,11 +16,11 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "PeopleSearch.WebApi.Data", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{E0B6152D-4921-4A22-ACD9-4FD39AD8E8C2}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "PeopleSearch.WebApi.UnitTests", "PeopleSearch.WebApi.UnitTests\PeopleSearch.WebApi.UnitTests.xproj", "{BEF616AC-85F6-4E78-9203-1B702436DA3E}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "PeopleSearch.WebApi.UnitTests", "src\PeopleSearch.WebApi.UnitTests\PeopleSearch.WebApi.UnitTests.xproj", "{BEF616AC-85F6-4E78-9203-1B702436DA3E}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "PeopleSearch.WebApi.Data.UnitTests", "PeopleSearch.WebApi.Data.UnitTests\PeopleSearch.WebApi.Data.UnitTests.xproj", "{066BEA3C-2210-4E2B-B3F1-8CD598FDE85B}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "PeopleSearch.WebApi.Data.UnitTests", "src\PeopleSearch.WebApi.Data.UnitTests\PeopleSearch.WebApi.Data.UnitTests.xproj", "{066BEA3C-2210-4E2B-B3F1-8CD598FDE85B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleSearch.Wpf.Client", "PeopleSearch.Wpf.Client\PeopleSearch.Wpf.Client.csproj", "{5DD29466-65A6-468D-B544-A6D600F4F288}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleSearch.Wpf.Client", "src\PeopleSearch.Wpf.Client\PeopleSearch.Wpf.Client.csproj", "{5DD29466-65A6-468D-B544-A6D600F4F288}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "server", "server", "{635A68FC-B9B4-4309-A38F-F1694E554CC6}"
 EndProject
@@ -28,15 +28,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "client", "client", "{245A8A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "server", "server", "{110ACF0D-B3BE-4CC5-852C-25099B9415DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleSearch.Common", "PeopleSearch.Common\PeopleSearch.Common.csproj", "{E4AA10D6-0C34-4F0D-B249-9CB68B62268D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleSearch.Common", "src\PeopleSearch.Common\PeopleSearch.Common.csproj", "{E4AA10D6-0C34-4F0D-B249-9CB68B62268D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleSearch.Model", "PeopleSearch.Model\PeopleSearch.Model.csproj", "{20F77714-9A40-436C-BCB6-1DEF6531A9E5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleSearch.Model", "src\PeopleSearch.Model\PeopleSearch.Model.csproj", "{20F77714-9A40-436C-BCB6-1DEF6531A9E5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{D7AC2CDA-BBDD-4B4C-B744-5A6489F691D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleSearch.Entities", "PeopleSearch.Entities\PeopleSearch.Entities.csproj", "{CC0806AA-2E97-4E91-818D-0C8978686ED0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleSearch.Entities", "src\PeopleSearch.Entities\PeopleSearch.Entities.csproj", "{CC0806AA-2E97-4E91-818D-0C8978686ED0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleSearch.ViewModel", "PeopleSearch.ViewModel\PeopleSearch.ViewModel.csproj", "{7691D3D2-BC6F-4A96-95EF-5DB532DE72C8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleSearch.ViewModel", "src\PeopleSearch.ViewModel\PeopleSearch.ViewModel.csproj", "{7691D3D2-BC6F-4A96-95EF-5DB532DE72C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
