@@ -1,0 +1,16 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net45+win+wpa81": {
+      "wrappedProject": "../../src/PeopleSearch.ViewModel/PeopleSearch.ViewModel.csproj",
+      "bin": {
+        "assembly": "../../src/PeopleSearch.ViewModel/obj/{configuration}/PeopleSearch.ViewModel.dll",
+        "pdb": "../../src/PeopleSearch.ViewModel/obj/{configuration}/PeopleSearch.ViewModel.pdb"
+      },
+      "dependencies": {
+        "PeopleSearch.Common": "1.0.0-*",
+        "PeopleSearch.Entities": "1.0.0-*"
+      }
+    }
+  }
+}
