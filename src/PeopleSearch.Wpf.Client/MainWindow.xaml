@@ -6,6 +6,6 @@
         xmlns:local="clr-namespace:PeopleSearch.Wpf.Client"
         xmlns:views="clr-namespace:PeopleSearch.Wpf.Client.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="400" Width="600">
     <views:PersonSearchView></views:PersonSearchView>
 </Window>

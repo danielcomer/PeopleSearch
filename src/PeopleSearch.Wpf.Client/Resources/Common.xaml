@@ -1,0 +1,20 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:PeopleSearch.Wpf.Client.Resources">
+    
+    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+
+    <Style x:Key="BaseControlStyle" TargetType="{x:Type Control}">
+        <Setter Property="Height" Value="24" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+    <Style TargetType="{x:Type Label}" BasedOn="{StaticResource BaseControlStyle}">
+        <Setter Property="Padding" Value="0" />
+    </Style>
+    <Style TargetType="{x:Type RadioButton}" BasedOn="{StaticResource BaseControlStyle}" />
+    <Style TargetType="{x:Type CheckBox}"  BasedOn="{StaticResource BaseControlStyle}" />
+    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BaseControlStyle}" >
+        <Setter Property="Padding" Value="10,0"/>
+    </Style>
+
+</ResourceDictionary>

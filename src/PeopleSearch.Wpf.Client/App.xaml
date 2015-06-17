@@ -4,6 +4,13 @@
              xmlns:mvvm="clr-namespace:PeopleSearch.Wpf.Client.Mvvm"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         <mvvm:ViewModelLocator x:Key="ViewModelLocator" />
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <mvvm:ViewModelLocator x:Key="ViewModelLocator" />
+                </ResourceDictionary>
+                <ResourceDictionary Source="Resources/Common.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

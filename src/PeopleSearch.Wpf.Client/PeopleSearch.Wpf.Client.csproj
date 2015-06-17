@@ -96,15 +96,23 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Configuration\ConfigurationProvider.cs" />
+    <Compile Include="Controls\CircularProgressBar.xaml.cs">
+      <DependentUpon>CircularProgressBar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="IoC\KernelAlreadyInitializedException.cs" />
     <Compile Include="IoC\KernelNotInitilizedException.cs" />
     <Compile Include="IoC\NinjectServiceLocator.cs" />
     <Compile Include="IoC\PeopleSearchNinjectModule.cs" />
     <Compile Include="Mvvm\ViewModelLocator.cs" />
     <Compile Include="Mvvm\WpfDelegateCommand.cs" />
+    <Compile Include="Resources\Class1.cs" />
     <Compile Include="Views\PersonSearchView.xaml.cs">
       <DependentUpon>PersonSearchView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Controls\CircularProgressBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -118,6 +126,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Resources\Common.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\PersonSearchView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

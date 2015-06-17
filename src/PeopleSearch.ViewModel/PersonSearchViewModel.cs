@@ -49,6 +49,8 @@ namespace PeopleSearch.ViewModel
             ConstructCommands();
 
             PropertyChanged += HandlePropertyChanged;
+
+            People = new ObservableTask<IEnumerable<Person>>(_peopleRestClient.GetAll());
         }
 
         private void HandlePropertyChanged(object sender, PropertyChangedEventArgs propertyChangedEventArgs)
