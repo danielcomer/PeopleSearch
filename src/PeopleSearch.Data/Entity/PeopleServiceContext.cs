@@ -1,7 +1,7 @@
 ﻿using System.Data.Entity;
-using PeopleSearch.Data.Entity;
+using PeopleSearch.Core.Extensions;
 
-namespace PeopleSearch.Data.Contexts
+namespace PeopleSearch.Data.Entity
 {
     public class PeopleServiceContext : DbContext
     {
@@ -11,7 +11,6 @@ namespace PeopleSearch.Data.Contexts
         
         public PeopleServiceContext()
         {
-            //todo: determine if this is good
             Configuration.LazyLoadingEnabled = false;
         }
 
@@ -22,9 +21,9 @@ namespace PeopleSearch.Data.Contexts
                 .WithMany(i => i.People)
                 .Map(cs =>
                 {
-                    cs.MapLeftKey(nameof(Person) + "Id");
-                    cs.MapRightKey(nameof(Interest) + "Id");
-                    cs.ToTable(nameof(Person) + nameof(Interest) + "s");
+                    cs.MapLeftKey(nameof(Person) + nameof(Person.Id));
+                    cs.MapRightKey(nameof(Interest) + nameof(Interest.Id));
+                    cs.ToTable(nameof(Person) + nameof(Interest).Pluralize());
                 });
 
             modelBuilder.Entity<Person>()
@@ -32,7 +31,7 @@ namespace PeopleSearch.Data.Contexts
                 .WithMany(s => s.People)
                 .Map(ca =>
                 {
-                    ca.MapKey(nameof(Person.HomeAddress) + "Id");
+                    ca.MapKey(nameof(Person.HomeAddress) + nameof(Address.Id));
                 });
         }
     }

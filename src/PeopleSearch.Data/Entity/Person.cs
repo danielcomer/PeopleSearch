@@ -9,7 +9,7 @@ namespace PeopleSearch.Data.Entity
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
-
+        
         public Gender? Gender { get; set; }
 
         public Address HomeAddress { get; set; }
@@ -17,12 +17,5 @@ namespace PeopleSearch.Data.Entity
         public byte[] PortraitPicture { get; set; }
 
         public ICollection<Interest> Interests { get; set; }
-
-        public Person()
-        {
-            //todo: determine if this is needed
-            HomeAddress = new Address();
-            Interests = new HashSet<Interest>();
-        }
     }
 }
