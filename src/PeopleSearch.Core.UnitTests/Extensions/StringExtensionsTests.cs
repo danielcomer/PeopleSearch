@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using PeopleSearch.Core.Extensions;
 using Xunit;
 
@@ -7,17 +6,13 @@ namespace PeopleSearch.Core.UnitTests.Extensions
 {
     public class StringExtensionsTest
     {
-        public static readonly List<object[]> Data = new List<object[]>
-        {
-            new object[] { "Hello World!", "hello", StringComparison.CurrentCultureIgnoreCase, true },
-            new object[] { "Hello World!", "hello", StringComparison.InvariantCultureIgnoreCase, true },
-            new object[] { "Hello World!", "hello", StringComparison.CurrentCulture, false },
-            new object[] { "Hello World!", "hello", StringComparison.InvariantCulture, false },
-            new object[] { "", "", null, true },
-            new object[] { "SomeString", "SomeOtherString", StringComparison.CurrentCulture, false }
-        };
-
-        [Theory, MemberData(nameof(Data))]
+        [Theory]
+        [InlineData("Hello World!", "hello", StringComparison.CurrentCultureIgnoreCase, true)]
+        [InlineData("Hello World!", "hello", StringComparison.InvariantCultureIgnoreCase, true)]
+        [InlineData("Hello World!", "hello", StringComparison.CurrentCulture, false)]
+        [InlineData("Hello World!", "hello", StringComparison.InvariantCulture, false)]
+        [InlineData("", "", null, true)]
+        [InlineData("SomeString", "SomeOtherString", StringComparison.CurrentCulture, false)]
         public void ContainsTheory(string source, string compareValue, StringComparison comparison, bool expectedResult)
         {
             var result = source.Contains(compareValue, comparison);
