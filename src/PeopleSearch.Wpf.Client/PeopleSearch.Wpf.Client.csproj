@@ -95,7 +95,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Configuration\ConfigurationProvider.cs" />
     <Compile Include="Controls\CircularProgressBar.xaml.cs">
       <DependentUpon>CircularProgressBar.xaml</DependentUpon>
     </Compile>
@@ -103,8 +102,14 @@
     <Compile Include="IoC\KernelNotInitilizedException.cs" />
     <Compile Include="IoC\NinjectServiceLocator.cs" />
     <Compile Include="IoC\PeopleSearchNinjectModule.cs" />
+    <Compile Include="Mvvm\ObservableTask.cs" />
+    <Compile Include="Mvvm\RelayCommand.cs" />
+    <Compile Include="Mvvm\ViewModelBase.cs" />
     <Compile Include="Mvvm\ViewModelLocator.cs" />
+    <Compile Include="Mvvm\FakeObservableTask.cs" />
     <Compile Include="Resources\Class1.cs" />
+    <Compile Include="ViewModels\FakePersonSearchViewModel.cs" />
+    <Compile Include="ViewModels\PersonSearchViewModel.cs" />
     <Compile Include="Views\PersonSearchView.xaml.cs">
       <DependentUpon>PersonSearchView.xaml</DependentUpon>
     </Compile>
@@ -162,26 +167,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PeopleSearch.Common\PeopleSearch.Common.csproj">
-      <Project>{E4AA10D6-0C34-4F0D-B249-9CB68B62268D}</Project>
-      <Name>PeopleSearch.Common</Name>
+    <ProjectReference Include="..\PeopleSearch.Core\PeopleSearch.Core.csproj">
+      <Project>{762C1B32-C5ED-47CF-B25C-9FFD647D931C}</Project>
+      <Name>PeopleSearch.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PeopleSearch.Entities\PeopleSearch.Entities.csproj">
-      <Project>{CC0806AA-2E97-4E91-818D-0C8978686ED0}</Project>
-      <Name>PeopleSearch.Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PeopleSearch.Model\PeopleSearch.Model.csproj">
-      <Project>{20f77714-9a40-436c-bcb6-1def6531a9e5}</Project>
-      <Name>PeopleSearch.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PeopleSearch.ViewModel\PeopleSearch.ViewModel.csproj">
-      <Project>{7691d3d2-bc6f-4a96-95ef-5db532de72c8}</Project>
-      <Name>PeopleSearch.ViewModel</Name>
+    <ProjectReference Include="..\PeopleSearch.Data\PeopleSearch.Data.csproj">
+      <Project>{e9422851-c700-4c1d-92a1-322076f208e4}</Project>
+      <Name>PeopleSearch.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\1.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

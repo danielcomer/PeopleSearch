@@ -1,5 +1,5 @@
-﻿using PeopleSearch.ViewModel;
-using PeopleSearch.Wpf.Client.IoC;
+﻿using PeopleSearch.Wpf.Client.IoC;
+using PersonSearchViewModel = PeopleSearch.Wpf.Client.ViewModels.PersonSearchViewModel;
 
 namespace PeopleSearch.Wpf.Client.Mvvm
 {
