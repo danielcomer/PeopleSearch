@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net452": {
+      "wrappedProject": "../../src/PeopleSearch.Core/PeopleSearch.Core.csproj",
+      "bin": {
+        "assembly": "../../src/PeopleSearch.Core/obj/{configuration}/PeopleSearch.Core.dll",
+        "pdb": "../../src/PeopleSearch.Core/obj/{configuration}/PeopleSearch.Core.pdb"
+      }
+    }
+  }
+}

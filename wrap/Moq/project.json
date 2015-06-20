@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net452": {
+      "bin": {
+        "assembly": "../../packages/Moq.4.2.1502.0911/lib/net40/Moq.dll"
+      }
+    }
+  }
+}

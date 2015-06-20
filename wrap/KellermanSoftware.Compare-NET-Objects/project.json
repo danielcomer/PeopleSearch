@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net452": {
+      "bin": {
+        "assembly": "../../packages/CompareNETObjects.3.02.0.0/lib/net451/KellermanSoftware.Compare-NET-Objects.dll"
+      }
+    }
+  }
+}
