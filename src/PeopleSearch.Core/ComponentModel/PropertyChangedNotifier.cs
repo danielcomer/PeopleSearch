@@ -14,28 +14,22 @@ namespace PeopleSearch.Core.ComponentModel
     {
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
         
-        protected void SetValue<T>(ref T value, T newValue, IEnumerable<string> affectedProperties, [CallerMemberName] string propertyName = null)
+        protected void SetBackingMemberValue<TMember>(ref TMember backingMemberReference, TMember value, IEnumerable<string> affectedPropertyNames = null, [CallerMemberName] string propertyName = null)
         {
-            if (value == null && newValue == null) return;
-            if (value != null && value.Equals(newValue)) return;
+            if (backingMemberReference == null && value == null) return;
+            if (backingMemberReference != null && backingMemberReference.Equals(value)) return;
 
-            value = newValue;
+            backingMemberReference = value;
 
             RaisePropertyChanged(propertyName);
 
-            foreach (var property in affectedProperties)
-            {
-                RaisePropertyChanged(property);
-            }
+            affectedPropertyNames?.ToList().ForEach(RaisePropertyChanged);
         }
 
-        protected void SetValue<T>(ref T value, T newValue, [CallerMemberName] string propertyName = null)
-        {
-            SetValue(ref value, newValue, Enumerable.Empty<string>(), propertyName);
-        }
 
         protected void RaisePropertyChanged([CallerMemberName] string propertyName = null)
         {
+
             if (string.IsNullOrEmpty(propertyName))
             {
                 throw new ArgumentNullException(nameof(propertyName));

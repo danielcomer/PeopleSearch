@@ -1,63 +1,77 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
 using System.Windows.Input;
+using PeopleSearch.Core.Extensions;
 using PeopleSearch.Data.Entity;
 using PeopleSearch.Wpf.Client.Mvvm;
 
 namespace PeopleSearch.Wpf.Client.ViewModels
 {
-    public class PersonSearchViewModel : ViewModelBase
+    //todo: consider autosearching on property changed "SearchString" instead of the command.
+    public class PersonSearchViewModel : ViewModelBase, IPersonSearchViewModel
     {
-        private readonly PeopleSearchDbContext _dbContext;
+        #region Members
 
-        #region Private Members
-
+        private readonly IPeopleSearchDbContext _dbContext;
         private string _searchString = string.Empty;
-        private ObservableTask<IEnumerable<Person>> _people;
+        private IObservableTask<IList<Person>> _people;
 
         #endregion
 
-        #region Public Properties
-        
+        #region Properties
+
+        #region Observable
+
         public string SearchString
         {
             get { return _searchString; }
-            set { SetValue(ref _searchString, value); }
+            set { SetBackingMemberValue(ref _searchString, value); }
         }
 
-        public Mvvm.ObservableTask<IEnumerable<Person>> People
+        public IObservableTask<IList<Person>> People
         {
             get { return _people; }
-            private set { SetValue(ref _people, value); }
+            private set { SetBackingMemberValue(ref _people, value); }
         }
+
+        #endregion
 
         #endregion
 
         #region Commmands
 
-        public ICommand SearchCommand { get; private set; }
+        public ICommand SearchByNameCommand { get; private set; }
 
         #endregion
 
         #region Constructors
 
-        public PersonSearchViewModel(PeopleSearchDbContext dbContext)
+        public PersonSearchViewModel(IPeopleSearchDbContext dbContext)
         {
             _dbContext = dbContext;
 
-            SearchCommand = new RelayCommand<object>(ExecuteSearchCommand);
+            SearchByNameCommand = new RelayCommand<string>(ExecuteSearchByNameCommand, s => !string.IsNullOrEmpty(s));
 
-            //People = new Mvvm.ObservableTask<IEnumerable<Person>>();
+            var query = _dbContext.People.ToListAsync();
+
+            People = new ObservableTask<List<Person>>(query);
         }
 
         #endregion
 
         #region Methods
         
-        private void ExecuteSearchCommand(object o)
+        private void ExecuteSearchByNameCommand(string personName)
         {
-            throw new NotImplementedException();
+            var searchString = personName ?? SearchString;
+
+            var query = _dbContext.People.Where(p => (p.FirstName + p.LastName)
+                    .Contains(searchString, StringComparison.CurrentCultureIgnoreCase))
+                    .ToListAsync();
+
+            People = new ObservableTask<List<Person>>(query);
         }
 
         #endregion

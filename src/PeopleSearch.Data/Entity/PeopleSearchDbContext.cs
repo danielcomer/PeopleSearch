@@ -4,7 +4,7 @@ using PeopleSearch.Data.Configuration;
 namespace PeopleSearch.Data.Entity
 {
     [DbConfigurationType(typeof(PeopleDbConfiguration))]
-    public class PeopleSearchDbContext : DbContext
+    public class PeopleSearchDbContext : DbContext, IPeopleSearchDbContext
     {
         public DbSet<Person> People { get; set; }
         public DbSet<Interest> Interests { get; set; }

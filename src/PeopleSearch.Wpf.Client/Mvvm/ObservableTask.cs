@@ -4,7 +4,7 @@ using PeopleSearch.Core.ComponentModel;
 
 namespace PeopleSearch.Wpf.Client.Mvvm
 {
-    public sealed class ObservableTask<TResult> : PropertyChangedNotifier
+    public sealed class ObservableTask<TResult> : PropertyChangedNotifier, IObservableTask<TResult>
     {
         #region Public Properties
 

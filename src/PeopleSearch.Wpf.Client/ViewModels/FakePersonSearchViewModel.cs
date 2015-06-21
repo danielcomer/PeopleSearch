@@ -3,32 +3,31 @@ using System.Linq;
 using System.Windows.Input;
 using PeopleSearch.Data.Entity;
 using PeopleSearch.Wpf.Client.Mvvm;
-using ViewModelBase = PeopleSearch.Wpf.Client.Mvvm.ViewModelBase;
 
 namespace PeopleSearch.Wpf.Client.ViewModels
 {
-    public class FakePersonSearchViewModel : ViewModelBase
+    public class FakePersonSearchViewModel : ViewModelBase, IPersonSearchViewModel
     {
         public string SearchString { get; set; }
 
-        public FakeObservableTask<IEnumerable<Person>> People { get; }
+        public IObservableTask<IList<Person>> People { get; }
 
-        public ICommand SearchCommand { get; }
+        public ICommand SearchByNameCommand { get; }
 
         public FakePersonSearchViewModel()
         {
             SearchString = "Hello";
-            People = new Wpf.Client.Mvvm.FakeObservableTask<IEnumerable<Person>>
+            People = new FakeObservableTask<IList<Person>>()
             {
                 Result = CreateFakePeople(),
                 IsSuccessfullyCompleted = true
             };
-            SearchCommand = null;
+            //SearchCommand = null;
         }
 
-        private static IEnumerable<Person> CreateFakePeople()
+        private static IList<Person> CreateFakePeople()
         {
-            return Enumerable.Empty<Person>();
+            return new List<Person>();
             //var a1 = new Address
             //{
             //    StreetLineOne = "1728 Candlelight Drive",

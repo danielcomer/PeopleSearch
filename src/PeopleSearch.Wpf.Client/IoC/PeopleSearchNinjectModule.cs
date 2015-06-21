@@ -1,5 +1,7 @@
-﻿using Ninject.Modules;
-using PersonSearchViewModel = PeopleSearch.Wpf.Client.ViewModels.PersonSearchViewModel;
+﻿using Ninject.Extensions.NamedScope;
+using Ninject.Modules;
+using PeopleSearch.Data.Entity;
+using PeopleSearch.Wpf.Client.ViewModels;
 
 namespace PeopleSearch.Wpf.Client.IoC
 {
@@ -7,7 +9,9 @@ namespace PeopleSearch.Wpf.Client.IoC
     {
         public override void Load()
         {
-            Bind<PersonSearchViewModel>().ToSelf().InTransientScope();
+            // see: http://stackoverflow.com/questions/7647912/why-re-initiate-the-dbcontext-when-using-the-entity-framework
+            Bind<IPeopleSearchDbContext>().To<PeopleSearchDbContext>().InParentScope();
+            Bind<IPersonSearchViewModel>().To<PersonSearchViewModel>().InTransientScope();
         }
     }
 }

@@ -73,6 +73,8 @@
     <Compile Include="Configuration\InterestEntityConfiguration.cs" />
     <Compile Include="Configuration\PeopleDbConfiguration.cs" />
     <Compile Include="Configuration\PersonEntityConfiguration.cs" />
+    <Compile Include="Entity\IDbContext.cs" />
+    <Compile Include="Entity\IPeopleSearchDbContext.cs" />
     <Compile Include="Entity\PeopleSearchDbContext.cs" />
     <Compile Include="DependencyResolution\PeopleSearchDbDependencyResolver.cs" />
     <Compile Include="Entity\Address.cs" />
