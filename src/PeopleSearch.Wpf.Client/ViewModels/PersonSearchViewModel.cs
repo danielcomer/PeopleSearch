@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Windows.Input;
 using PeopleSearch.Data.Entity;
 using PeopleSearch.Wpf.Client.Mvvm;
@@ -8,6 +9,8 @@ namespace PeopleSearch.Wpf.Client.ViewModels
 {
     public class PersonSearchViewModel : ViewModelBase
     {
+        private readonly PeopleSearchDbContext _dbContext;
+
         #region Private Members
 
         private string _searchString = string.Empty;
@@ -39,23 +42,19 @@ namespace PeopleSearch.Wpf.Client.ViewModels
 
         #region Constructors
 
-        public PersonSearchViewModel()
+        public PersonSearchViewModel(PeopleSearchDbContext dbContext)
         {
+            _dbContext = dbContext;
 
-            ConstructCommands();
+            SearchCommand = new RelayCommand<object>(ExecuteSearchCommand);
 
-            //People = new Mvvm.ObservableTask<IEnumerable<Person>>(_peopleRestClient.GetAll());
+            //People = new Mvvm.ObservableTask<IEnumerable<Person>>();
         }
 
         #endregion
 
         #region Methods
-
-        private void ConstructCommands()
-        {
-            SearchCommand = new RelayCommand<object>(ExecuteSearchCommand);
-        }
-
+        
         private void ExecuteSearchCommand(object o)
         {
             throw new NotImplementedException();

@@ -10,7 +10,7 @@ namespace PeopleSearch.Wpf.Client.UnitTests.ViewModels
 {
     public class PersonSearchViewModelTests
     {
-        public PersonSearchViewModel viewModel = new PersonSearchViewModel();
+        //public PersonSearchViewModel viewModel = new PersonSearchViewModel();
 
         [Fact]
         public void AFact()
