@@ -1,16 +1,16 @@
-using PeopleSearch.Data.Entity;
 using System.Data.Entity.Migrations;
+using PeopleSearch.Data.Entity;
 
 namespace PeopleSearch.Data.Migrations
 {
-    public sealed class Configuration : DbMigrationsConfiguration<PeopleSearchDbContext>
+    public sealed class PeopleSearchMigrationsConfiguration : DbMigrationsConfiguration<PeopleServiceContext>
     {
-        public Configuration()
+        public PeopleSearchMigrationsConfiguration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(PeopleSearchDbContext context)
+        protected override void Seed(PeopleServiceContext context)
         {
             PeopleSearchDataSeeder.Seed(context);
 

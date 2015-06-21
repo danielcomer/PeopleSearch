@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:controls="clr-namespace:Jti.EcourtWordAddIn.UI.Controls"
              xmlns:viewModels="clr-namespace:PeopleSearch.Wpf.Client.ViewModels"
-             xmlns:entities="clr-namespace:PeopleSearch.Data.Entity;assembly=PeopleSearch.Data"
+             xmlns:model="clr-namespace:PeopleSearch.Data.Entity.Model;assembly=PeopleSearch.Data"
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance Type=viewModels:DesignTimePersonSearchViewModel, IsDesignTimeCreatable=True}"
              DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=PersonSearchViewModel}"
@@ -18,13 +18,13 @@
         
         <StackPanel Orientation="Horizontal" Margin="10">
             <Label>Search By Name:</Label>
-            <TextBox Width="250" Margin="10,0,10,0" 
+            <TextBox x:Name="SearchTextBox" Width="250" Margin="10,0,10,0" 
                      Text="{Binding SearchString, UpdateSourceTrigger=PropertyChanged}" MinWidth="100">
                 <TextBox.InputBindings>
-                    <KeyBinding Key="Enter" Command="{Binding SearchByNameCommand}"></KeyBinding>
+                    <KeyBinding Key="Enter" Command="{Binding SearchByName}" CommandParameter="{Binding ElementName=SearchTextBox, Path=Text }" />
                 </TextBox.InputBindings>
             </TextBox>
-            <Button Command="{Binding SearchByNameCommand}">Search</Button>
+            <Button Command="{Binding SearchByName}" CommandParameter="{Binding ElementName=SearchTextBox, Path=Text}">Search</Button>
         </StackPanel>
         
         <Grid Grid.Row="1" Margin="5">
@@ -38,7 +38,7 @@
             <ListBox ItemsSource="{Binding Path=People.Result}" HorizontalContentAlignment="Stretch"
                      Visibility="{Binding People.IsSuccessfullyCompleted, Converter={StaticResource BooleanToVisibilityConverter}}">
                 <ListBox.ItemTemplate>
-                    <DataTemplate DataType="{x:Type entities:Person}">
+                    <DataTemplate DataType="{x:Type model:Person}">
                         <Grid Margin="5">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="125" />

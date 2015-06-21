@@ -1,22 +1,26 @@
 ﻿using System.Data.Entity;
-using PeopleSearch.Data.Configuration;
+using System.Data.Entity.ModelConfiguration.Conventions;
+using PeopleSearch.Data.Entity.Model;
+using PeopleSearch.Data.Entity.ModelConfiguration;
 
 namespace PeopleSearch.Data.Entity
 {
-    [DbConfigurationType(typeof(PeopleDbConfiguration))]
-    public class PeopleSearchDbContext : DbContext, IPeopleSearchDbContext
+    [DbConfigurationType(typeof(PeopleServiceConfiguration))]
+    public class PeopleServiceContext : DbContext, IPeopleServiceContext
     {
         public DbSet<Person> People { get; set; }
         public DbSet<Interest> Interests { get; set; }
         public DbSet<Address> Addresses { get; set; }
-        
-        public PeopleSearchDbContext()
+
+        public PeopleServiceContext(string nameOrConnectionString) : base(nameOrConnectionString)
         {
             Configuration.LazyLoadingEnabled = false;
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
             modelBuilder.Configurations.Add(new PersonEntityConfiguration());
             modelBuilder.Configurations.Add(new AddressEntityConfiguration());
             modelBuilder.Configurations.Add(new InterestEntityConfiguration());

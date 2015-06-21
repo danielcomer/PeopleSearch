@@ -34,11 +34,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServerCompact, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EntityFramework.SqlServerCompact.6.1.3\lib\net45\EntityFramework.SqlServerCompact.dll</HintPath>
+      <HintPath>..\..\packages\EntityFramework.SqlServerCompact.6.1.2\lib\net45\EntityFramework.SqlServerCompact.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -69,28 +73,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\AddressEntityConfiguration.cs" />
-    <Compile Include="Configuration\InterestEntityConfiguration.cs" />
-    <Compile Include="Configuration\PeopleDbConfiguration.cs" />
-    <Compile Include="Configuration\PersonEntityConfiguration.cs" />
+    <Compile Include="Entity\PeopleServiceConfiguration.cs" />
+    <Compile Include="Entity\ModelConfiguration\AddressEntityConfiguration.cs" />
+    <Compile Include="Entity\ModelConfiguration\InterestEntityConfiguration.cs" />
+    <Compile Include="Entity\ModelConfiguration\PersonEntityConfiguration.cs" />
     <Compile Include="Entity\IDbContext.cs" />
-    <Compile Include="Entity\IPeopleSearchDbContext.cs" />
-    <Compile Include="Entity\PeopleSearchDbContext.cs" />
-    <Compile Include="DependencyResolution\PeopleSearchDbDependencyResolver.cs" />
-    <Compile Include="Entity\Address.cs" />
-    <Compile Include="Entity\Gender.cs" />
-    <Compile Include="Entity\Interest.cs" />
-    <Compile Include="Entity\Person.cs" />
-    <Compile Include="Infrastructure\PeopleSearchDbProviderFactoryResolver.cs" />
-    <Compile Include="Migrations\201506201750395_InitialCreate.cs" />
-    <Compile Include="Migrations\201506201750395_InitialCreate.Designer.cs">
-      <DependentUpon>201506201750395_InitialCreate.cs</DependentUpon>
+    <Compile Include="Entity\IPeopleServiceContext.cs" />
+    <Compile Include="Entity\PeopleServiceContext.cs" />
+    <Compile Include="Entity\Model\Address.cs" />
+    <Compile Include="Entity\Model\Gender.cs" />
+    <Compile Include="Entity\Model\Interest.cs" />
+    <Compile Include="Entity\Model\Person.cs" />
+    <Compile Include="Migrations\201506211713107_InitialCreate.cs" />
+    <Compile Include="Migrations\201506211713107_InitialCreate.Designer.cs">
+      <DependentUpon>201506211713107_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\PeopleSearchMigrationsConfiguration.cs" />
     <Compile Include="Migrations\FakeDataFactory.cs" />
     <Compile Include="Migrations\PeopleSearchDataSeeder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\PersonViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PeopleSearch.Core\PeopleSearch.Core.csproj">
@@ -103,8 +104,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201506201750395_InitialCreate.resx">
-      <DependentUpon>201506201750395_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201506211713107_InitialCreate.resx">
+      <DependentUpon>201506211713107_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace PeopleSearch.Data.Entity
+namespace PeopleSearch.Data.Entity.Model
 {
     public class Address
     {
@@ -13,6 +13,11 @@ namespace PeopleSearch.Data.Entity
         public string PostalCode { get; set; }
 
         public ICollection<Person> People { get; set; }
+
+        public Address()
+        {
+            People = new HashSet<Person>();
+        }
     }
 
     //todo: List of countries / states / postal codes

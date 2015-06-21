@@ -1,23 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.Infrastructure.Annotations;
 using System.Data.Entity.ModelConfiguration;
-using PeopleSearch.Core.Extensions;
-using PeopleSearch.Data.Entity;
+using PeopleSearch.Data.Entity.Model;
 
-namespace PeopleSearch.Data.Configuration
+namespace PeopleSearch.Data.Entity.ModelConfiguration
 {
     public class PersonEntityConfiguration : EntityTypeConfiguration<Person>
     {
         public PersonEntityConfiguration()
         {
             HasMany(p => p.Interests)
-                .WithMany(i => i.People)
-                .Map(cs =>
-                {
-                    cs.MapLeftKey(nameof(Person) + nameof(Person.Id));
-                    cs.MapRightKey(nameof(Interest) + nameof(Interest.Id));
-                    cs.ToTable(nameof(Person) + nameof(Interest).Pluralize());
-                });
+                .WithMany(i => i.People);
 
             HasRequired(p => p.HomeAddress)
                 .WithMany(s => s.People)

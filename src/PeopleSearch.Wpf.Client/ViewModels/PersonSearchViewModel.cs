@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Windows.Input;
-using PeopleSearch.Core.Extensions;
 using PeopleSearch.Data.Entity;
+using PeopleSearch.Data.Entity.Model;
 using PeopleSearch.Wpf.Client.Mvvm;
 
 namespace PeopleSearch.Wpf.Client.ViewModels
@@ -14,8 +13,7 @@ namespace PeopleSearch.Wpf.Client.ViewModels
     {
         #region Members
 
-        private readonly IPeopleSearchDbContext _dbContext;
-        private string _searchString = string.Empty;
+        private readonly IPeopleServiceContext _dbContext;
         private IObservableTask<IList<Person>> _people;
 
         #endregion
@@ -23,12 +21,6 @@ namespace PeopleSearch.Wpf.Client.ViewModels
         #region Properties
 
         #region Observable
-
-        public string SearchString
-        {
-            get { return _searchString; }
-            set { SetBackingMemberValue(ref _searchString, value); }
-        }
 
         public IObservableTask<IList<Person>> People
         {
@@ -42,19 +34,19 @@ namespace PeopleSearch.Wpf.Client.ViewModels
 
         #region Commmands
 
-        public ICommand SearchByNameCommand { get; private set; }
+        public ICommand SearchByName { get; }
 
         #endregion
 
         #region Constructors
 
-        public PersonSearchViewModel(IPeopleSearchDbContext dbContext)
+        public PersonSearchViewModel(IPeopleServiceContext dbContext)
         {
             _dbContext = dbContext;
 
-            SearchByNameCommand = new RelayCommand<string>(ExecuteSearchByNameCommand, s => !string.IsNullOrEmpty(s));
+            SearchByName = new RelayCommand<string>(ExecuteSearchByNameCommand);
 
-            var query = _dbContext.People.ToListAsync();
+            var query = _dbContext.People.Include(p => p.HomeAddress).ToListAsync();
 
             People = new ObservableTask<List<Person>>(query);
         }
@@ -65,10 +57,11 @@ namespace PeopleSearch.Wpf.Client.ViewModels
         
         private void ExecuteSearchByNameCommand(string personName)
         {
-            var searchString = personName ?? SearchString;
+            var searchString = (personName ?? string.Empty).ToUpper();
 
-            var query = _dbContext.People.Where(p => (p.FirstName + p.LastName)
-                    .Contains(searchString, StringComparison.CurrentCultureIgnoreCase))
+            var query =
+                _dbContext.People.Include(p => p.HomeAddress)
+                    .Where(p => p.FirstName.ToUpper().Contains(searchString) || p.LastName.ToUpper().Contains(searchString))
                     .ToListAsync();
 
             People = new ObservableTask<List<Person>>(query);

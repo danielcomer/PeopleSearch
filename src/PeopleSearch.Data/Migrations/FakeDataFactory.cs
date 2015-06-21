@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using PeopleSearch.Data.Entity;
+using PeopleSearch.Data.Entity.Model;
 
 namespace PeopleSearch.Data.Migrations
 {

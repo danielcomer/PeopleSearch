@@ -1,4 +1,4 @@
-﻿namespace PeopleSearch.Data.Entity
+﻿namespace PeopleSearch.Data.Entity.Model
 {
     public enum Gender
     {
