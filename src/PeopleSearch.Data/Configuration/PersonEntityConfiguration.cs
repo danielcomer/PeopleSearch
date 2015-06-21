@@ -1,4 +1,6 @@
-﻿using System.Data.Entity.ModelConfiguration;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.Infrastructure.Annotations;
+using System.Data.Entity.ModelConfiguration;
 using PeopleSearch.Core.Extensions;
 using PeopleSearch.Data.Entity;
 
@@ -19,18 +21,18 @@ namespace PeopleSearch.Data.Configuration
 
             HasRequired(p => p.HomeAddress)
                 .WithMany(s => s.People)
-                .Map(ca =>
-                {
-                    ca.MapKey(nameof(Person.HomeAddress) + nameof(Address.Id));
-                });
+                .HasForeignKey(p => p.HomeAddressId)
+                .WillCascadeOnDelete(false);
 
             Property(p => p.FirstName)
                 .IsRequired()
-                .HasMaxLength(30);
+                .HasMaxLength(60)
+                .HasColumnAnnotation(IndexAnnotation.AnnotationName, new IndexAnnotation(new IndexAttribute()));
 
             Property(p => p.LastName)
                 .IsRequired()
-                .HasMaxLength(30);
+                .HasMaxLength(60)
+                .HasColumnAnnotation(IndexAnnotation.AnnotationName, new IndexAnnotation(new IndexAttribute()));
         }
     }
 }

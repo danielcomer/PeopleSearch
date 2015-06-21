@@ -118,7 +118,7 @@
     <Compile Include="Mvvm\ViewModelLocator.cs" />
     <Compile Include="Mvvm\FakeObservableTask.cs" />
     <Compile Include="Resources\Class1.cs" />
-    <Compile Include="ViewModels\FakePersonSearchViewModel.cs" />
+    <Compile Include="ViewModels\DesignTimePersonSearchViewModel.cs" />
     <Compile Include="ViewModels\IPersonSearchViewModel.cs" />
     <Compile Include="ViewModels\PersonSearchViewModel.cs" />
     <Compile Include="Views\PersonSearchView.xaml.cs">

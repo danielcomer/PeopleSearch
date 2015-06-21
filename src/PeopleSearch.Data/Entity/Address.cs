@@ -13,11 +13,6 @@ namespace PeopleSearch.Data.Entity
         public string PostalCode { get; set; }
 
         public ICollection<Person> People { get; set; }
-
-        public Address()
-        {
-            People = new HashSet<Person>();
-        }
     }
 
     //todo: List of countries / states / postal codes

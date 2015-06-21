@@ -1,10 +1,10 @@
 ﻿using PeopleSearch.Wpf.Client.IoC;
-using PersonSearchViewModel = PeopleSearch.Wpf.Client.ViewModels.PersonSearchViewModel;
+using PeopleSearch.Wpf.Client.ViewModels;
 
 namespace PeopleSearch.Wpf.Client.Mvvm
 {
     public class ViewModelLocator
     {
-        public PersonSearchViewModel PersonSearchViewModel => NinjectServiceLocator.Get<PersonSearchViewModel>();
+        public IPersonSearchViewModel PersonSearchViewModel => NinjectServiceLocator.Get<IPersonSearchViewModel>();
     }
 }

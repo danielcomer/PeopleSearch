@@ -9,6 +9,7 @@ namespace PeopleSearch.Data.Configuration
         {
             Property(i => i.Text)
                 .IsRequired()
+                .IsUnicode(true)
                 .HasMaxLength(50);
         }
     }
