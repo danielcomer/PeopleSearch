@@ -45,7 +45,7 @@ namespace PeopleSearch.Wpf.Client.ViewModels
             _dbContext = dbContext;
             _taskFactory = taskFactory;
 
-            SearchByName = new RelayCommand<string>(ExecuteSearchByNameCommand);
+            SearchByName = new RelayCommand<string>(ExecuteSearchByName);
             People = _taskFactory.Create(CreateQuery().ToListAsync());
         }
 
@@ -53,7 +53,7 @@ namespace PeopleSearch.Wpf.Client.ViewModels
 
         #region Methods
         
-        private void ExecuteSearchByNameCommand(string personName)
+        private void ExecuteSearchByName(string personName)
         {
             People = _taskFactory.Create(CreateQuery(personName).ToListAsync());
         }

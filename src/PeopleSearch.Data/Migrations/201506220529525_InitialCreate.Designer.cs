@@ -13,7 +13,7 @@ namespace PeopleSearch.Data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201506211713107_InitialCreate"; }
+            get { return "201506220529525_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

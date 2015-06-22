@@ -8,7 +8,7 @@ namespace PeopleSearch.Data.Migrations
         public override void Up()
         {
             CreateTable(
-                "dbo.Address",
+                "dbo.Addresses",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
@@ -22,24 +22,24 @@ namespace PeopleSearch.Data.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Person",
+                "dbo.People",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
                         FirstName = c.String(nullable: false, maxLength: 60),
                         LastName = c.String(nullable: false, maxLength: 60),
-                        Gender = c.Int(),
+                        Gender = c.Int(nullable: false),
                         HomeAddressId = c.Int(nullable: false),
-                        PortraitPicture = c.Binary(maxLength: 4000),
+                        PortraitPicture = c.Binary(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Address", t => t.HomeAddressId)
+                .ForeignKey("dbo.Addresses", t => t.HomeAddressId)
                 .Index(t => t.FirstName)
                 .Index(t => t.LastName)
                 .Index(t => t.HomeAddressId);
             
             CreateTable(
-                "dbo.Interest",
+                "dbo.Interests",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
@@ -49,15 +49,15 @@ namespace PeopleSearch.Data.Migrations
                 .Index(t => t.Text, unique: true);
             
             CreateTable(
-                "dbo.PersonInterest",
+                "dbo.PersonInterests",
                 c => new
                     {
                         Person_Id = c.Int(nullable: false),
                         Interest_Id = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => new { t.Person_Id, t.Interest_Id })
-                .ForeignKey("dbo.Person", t => t.Person_Id, cascadeDelete: true)
-                .ForeignKey("dbo.Interest", t => t.Interest_Id, cascadeDelete: true)
+                .ForeignKey("dbo.People", t => t.Person_Id, cascadeDelete: true)
+                .ForeignKey("dbo.Interests", t => t.Interest_Id, cascadeDelete: true)
                 .Index(t => t.Person_Id)
                 .Index(t => t.Interest_Id);
             
@@ -65,19 +65,19 @@ namespace PeopleSearch.Data.Migrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.PersonInterest", "Interest_Id", "dbo.Interest");
-            DropForeignKey("dbo.PersonInterest", "Person_Id", "dbo.Person");
-            DropForeignKey("dbo.Person", "HomeAddressId", "dbo.Address");
-            DropIndex("dbo.PersonInterest", new[] { "Interest_Id" });
-            DropIndex("dbo.PersonInterest", new[] { "Person_Id" });
-            DropIndex("dbo.Interest", new[] { "Text" });
-            DropIndex("dbo.Person", new[] { "HomeAddressId" });
-            DropIndex("dbo.Person", new[] { "LastName" });
-            DropIndex("dbo.Person", new[] { "FirstName" });
-            DropTable("dbo.PersonInterest");
-            DropTable("dbo.Interest");
-            DropTable("dbo.Person");
-            DropTable("dbo.Address");
+            DropForeignKey("dbo.PersonInterests", "Interest_Id", "dbo.Interests");
+            DropForeignKey("dbo.PersonInterests", "Person_Id", "dbo.People");
+            DropForeignKey("dbo.People", "HomeAddressId", "dbo.Addresses");
+            DropIndex("dbo.PersonInterests", new[] { "Interest_Id" });
+            DropIndex("dbo.PersonInterests", new[] { "Person_Id" });
+            DropIndex("dbo.Interests", new[] { "Text" });
+            DropIndex("dbo.People", new[] { "HomeAddressId" });
+            DropIndex("dbo.People", new[] { "LastName" });
+            DropIndex("dbo.People", new[] { "FirstName" });
+            DropTable("dbo.PersonInterests");
+            DropTable("dbo.Interests");
+            DropTable("dbo.People");
+            DropTable("dbo.Addresses");
         }
     }
 }

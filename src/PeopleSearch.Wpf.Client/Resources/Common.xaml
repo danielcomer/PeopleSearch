@@ -1,9 +1,23 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:PeopleSearch.Wpf.Client.Resources">
+                    xmlns:local="clr-namespace:PeopleSearch.Wpf.Client.Resources"
+                    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+                    xmlns:triggerActions="clr-namespace:PeopleSearch.Wpf.Client.Interactivity.TriggerActions">
     
     <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
 
+    <Color x:Key="DisabledControlLightColor">#FFE8EDF9</Color>
+    <Color x:Key="DisabledControlDarkColor">#FFC5CBF9</Color>
+    <Color x:Key="DisabledForegroundColor">#FF888888</Color>
+
+    <Color x:Key="ControlLightColor">White</Color>
+    <Color x:Key="ControlMediumColor">#FF7381F9</Color>
+    <Color x:Key="ControlDarkColor">#FF211AA9</Color>
+
+    <Color x:Key="BorderLightColor">#FFCCCCCC</Color>
+    <Color x:Key="BorderMediumColor">#FF888888</Color>
+    <Color x:Key="BorderDarkColor">#FF444444</Color>
+    
     <Style x:Key="BaseControlStyle" TargetType="{x:Type Control}">
         <Setter Property="Height" Value="24" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -15,6 +29,84 @@
     <Style TargetType="{x:Type CheckBox}"  BasedOn="{StaticResource BaseControlStyle}" />
     <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BaseControlStyle}" >
         <Setter Property="Padding" Value="10,0"/>
+    </Style>
+
+    <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource BaseControlStyle}">
+        <!--<Setter Property="controls:SelectTextOnFocusService.SelectAllOnFocus" Value="True"></Setter>-->
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBoxBase}">
+                    <Border Name="Border" Padding="2" BorderThickness="1">
+                        <Border.Background>
+                            <SolidColorBrush Color="{StaticResource ControlLightColor}" />
+                        </Border.Background>
+                        <Border.BorderBrush>
+                            <SolidColorBrush Color="{StaticResource BorderMediumColor}" />
+                        </Border.BorderBrush>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetName="Border"
+                                                                      Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                            <EasingColorKeyFrame KeyTime="0" Value="{StaticResource DisabledControlLightColor}" />
+                                        </ColorAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="ReadOnly">
+                                    <Storyboard>
+                                        <ColorAnimationUsingKeyFrames Storyboard.TargetName="Border"
+                                                                      Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                            <EasingColorKeyFrame KeyTime="0" Value="{StaticResource DisabledControlDarkColor}" />
+                                        </ColorAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="MouseOver" />
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <ScrollViewer Margin="0" x:Name="PART_ContentHost" />
+
+                            <Button Grid.Column="1" HorizontalAlignment="Right" Padding="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="Click">
+                                        <triggerActions:ClearTextBoxTriggerAction Target="{Binding RelativeSource={RelativeSource TemplatedParent}}" />
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                                <Path x:Name="ButtonPath"
+                                      Margin="3"
+                                      Stroke="Black"
+                                      StrokeThickness="1.5"
+                                      StrokeStartLineCap="Square"
+                                      StrokeEndLineCap="Square"
+                                      Stretch="Uniform"
+                                      VerticalAlignment="Center"
+                                      HorizontalAlignment="Center">
+                                    <Path.Data>
+                                        <PathGeometry>
+                                            <PathGeometry.Figures>
+                                                <PathFigure StartPoint="0,0">
+                                                    <LineSegment Point="6,6"/>
+                                                </PathFigure>
+                                                <PathFigure StartPoint="0,6">
+                                                    <LineSegment Point="6,0"/>
+                                                </PathFigure>
+                                            </PathGeometry.Figures>
+                                        </PathGeometry>
+                                    </Path.Data>
+                                </Path>
+                            </Button>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 
 </ResourceDictionary>

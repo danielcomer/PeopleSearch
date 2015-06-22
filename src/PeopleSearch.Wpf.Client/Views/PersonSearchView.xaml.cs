@@ -7,7 +7,6 @@ namespace PeopleSearch.Wpf.Client.Views
         public PersonSearchView()
         {
             InitializeComponent();
-
         }
     }
 }

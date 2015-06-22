@@ -32,18 +32,5 @@ namespace PeopleSearch.Core.UnitTests.Extensions
 
             Assert.Equal("value", exception.ParamName);
         }
-
-        [Theory]
-        [InlineData("Person", 1, "Person")]
-        [InlineData("Person", 0, "People")]
-        [InlineData("Person", -1, "People")]
-        [InlineData("Mouse", 2, "Mice")]
-        [InlineData("Interest", 2, "Interests")]
-        public void PluralizeTheory(string source, int count, string expectedResult)
-        {
-            var result = source.Pluralize(count);
-
-            Assert.Equal(expectedResult, result);
-        }
     }
 }

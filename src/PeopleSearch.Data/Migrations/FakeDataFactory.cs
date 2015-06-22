@@ -1,4 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Reflection;
 using PeopleSearch.Data.Entity.Model;
 
 namespace PeopleSearch.Data.Migrations
@@ -72,7 +75,7 @@ namespace PeopleSearch.Data.Migrations
 
         public static List<Person> CreatePeople()
         {
-            return new List<Person>
+            var people = new List<Person>
             {
                 new Person { FirstName = "Susan", LastName = "Nicholson", Gender = Gender.Female},
                 new Person { FirstName = "Albert", LastName = "Porter", Gender = Gender.Male},
@@ -83,6 +86,28 @@ namespace PeopleSearch.Data.Migrations
                 new Person { FirstName = "Carrie", LastName = "Crawford", Gender = Gender.Female},
                 new Person { FirstName = "Linwood", LastName = "McCarter", Gender = Gender.Female}
             };
+
+            var thisAssembly = Assembly.GetAssembly(typeof(FakeDataFactory));
+            
+            foreach (var person in people.Where(person => person.Gender != Gender.Unspecified))
+            {
+                using (var ms = new MemoryStream())
+                {
+                    if (person.Gender == Gender.Female)
+                    {
+                        thisAssembly.GetManifestResourceStream("PeopleSearch.Data.MigrationResources.FemaleIcon.png")?.CopyTo(ms);
+                    }
+                    else
+                    {
+                        thisAssembly.GetManifestResourceStream("PeopleSearch.Data.MigrationResources.MaleIcon.png")?.CopyTo(ms);
+                    }
+
+                    person.PortraitPicture = ms.ToArray();
+                }
+                    
+            }
+
+            return people;
         }
 
         public static List<Interest> CreateInterests()

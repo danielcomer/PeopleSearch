@@ -10,6 +10,7 @@
                     <mvvm:ViewModelLocator x:Key="ViewModelLocator" />
                 </ResourceDictionary>
                 <ResourceDictionary Source="Resources/Common.xaml" />
+                <ResourceDictionary Source="Resources/DataTemplates.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

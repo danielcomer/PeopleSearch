@@ -41,16 +41,18 @@ namespace PeopleSearch.Wpf.Client.Mvvm
 
         public ObservableTask(Task<TResult> theTask, TimeSpan? simulatedDelaySpan = null)
         {
-            if (simulatedDelaySpan != null)
+            if (simulatedDelaySpan?.TotalMilliseconds >= 1)
             {
                 var delay = Task.Delay(simulatedDelaySpan.Value);
                 delay.ContinueWith(t => TheTask = theTask);
-                var _ = WatchTaskAsync(delay);
             }
             else
             {
                 TheTask = theTask;
-                var _ = WatchTaskAsync(theTask);
+                if (!theTask.IsCompleted)
+                {
+                    var _ = WatchTaskAsync(theTask);
+                }
             }
         }
 

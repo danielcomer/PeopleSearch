@@ -19,8 +19,6 @@ namespace PeopleSearch.Data.Entity
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-
             modelBuilder.Configurations.Add(new PersonEntityConfiguration());
             modelBuilder.Configurations.Add(new AddressEntityConfiguration());
             modelBuilder.Configurations.Add(new InterestEntityConfiguration());

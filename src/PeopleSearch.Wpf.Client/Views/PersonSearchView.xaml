@@ -57,29 +57,13 @@
                                 <ColumnDefinition Width="1*" />
                             </Grid.ColumnDefinitions>
 
-                            <DockPanel>
-                                <StackPanel DockPanel.Dock="Bottom" HorizontalAlignment="Center" Orientation="Horizontal">
-                                    <TextBlock Text="{Binding FirstName}" FontWeight="Bold" />
-                                    <TextBlock Text="{Binding LastName}" Margin="5,0,0,0" FontWeight="Bold" />
-                                </StackPanel>
-                                <Image Width="64" Height="64">
-                                    <Image.Source>
-                                        <BitmapImage UriSource="/Resources/1.png" ></BitmapImage>
-                                    </Image.Source>
-                                </Image>
-                            </DockPanel>
-                            <Grid Grid.Column="1" Margin="20,0,0,0">
-                                <StackPanel>
-                                    <TextBlock FontWeight="Bold">Address</TextBlock>
-                                    <TextBlock Text="{Binding HomeAddress.StreetLineOne}"></TextBlock>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Text="{Binding HomeAddress.City}"></TextBlock>
-                                        <TextBlock Margin="5,0,0,0" Text="{Binding HomeAddress.StateOrProvince}"></TextBlock>
-                                        <TextBlock>,</TextBlock>
-                                        <TextBlock Margin="5,0,0,0" Text="{Binding HomeAddress.PostalCode}"></TextBlock>
-                                    </StackPanel>
-                                </StackPanel>
-                            </Grid>
+                            <ContentControl Content="{Binding .}" ContentTemplate="{StaticResource ProfilePictureWithNameBelowTemplate}"></ContentControl>
+
+                            <StackPanel Grid.Column="1">
+                                <TextBlock FontWeight="Bold">Address:</TextBlock>
+                                <ContentControl Content="{Binding Path=HomeAddress}" ContentTemplate="{StaticResource StackedAddressTemplate}" />
+                            </StackPanel>
+                            
                             <Grid Grid.Column="2" Margin="20,0,0,0">
                                 <StackPanel>
                                     <TextBlock FontWeight="Bold">Interests</TextBlock>

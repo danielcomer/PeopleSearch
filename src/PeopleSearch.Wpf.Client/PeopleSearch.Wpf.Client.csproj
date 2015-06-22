@@ -108,9 +108,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Adorners\WatermarkAdorner.cs" />
     <Compile Include="Controls\CircularProgressBar.xaml.cs">
       <DependentUpon>CircularProgressBar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Interactivity\TriggerActions\ClearTextBoxTriggerAction.cs" />
     <Compile Include="IoC\KernelAlreadyInitializedException.cs" />
     <Compile Include="IoC\KernelNotInitilizedException.cs" />
     <Compile Include="IoC\NinjectServiceLocator.cs" />
@@ -147,6 +149,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Resources\Common.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\DataTemplates.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -192,9 +198,6 @@
       <Project>{e9422851-c700-4c1d-92a1-322076f208e4}</Project>
       <Name>PeopleSearch.Data</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\1.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

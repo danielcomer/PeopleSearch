@@ -53,6 +53,7 @@
       <HintPath>..\..\packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -84,9 +85,9 @@
     <Compile Include="Entity\Model\Gender.cs" />
     <Compile Include="Entity\Model\Interest.cs" />
     <Compile Include="Entity\Model\Person.cs" />
-    <Compile Include="Migrations\201506211713107_InitialCreate.cs" />
-    <Compile Include="Migrations\201506211713107_InitialCreate.Designer.cs">
-      <DependentUpon>201506211713107_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201506220529525_InitialCreate.cs" />
+    <Compile Include="Migrations\201506220529525_InitialCreate.Designer.cs">
+      <DependentUpon>201506220529525_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\PeopleSearchMigrationsConfiguration.cs" />
     <Compile Include="Migrations\FakeDataFactory.cs" />
@@ -104,8 +105,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201506211713107_InitialCreate.resx">
-      <DependentUpon>201506211713107_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="MigrationResources\FemaleIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MigrationResources\MaleIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506220529525_InitialCreate.resx">
+      <DependentUpon>201506220529525_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

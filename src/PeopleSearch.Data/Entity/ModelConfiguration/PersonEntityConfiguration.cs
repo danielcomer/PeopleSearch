@@ -26,6 +26,9 @@ namespace PeopleSearch.Data.Entity.ModelConfiguration
                 .IsRequired()
                 .HasMaxLength(60)
                 .HasColumnAnnotation(IndexAnnotation.AnnotationName, new IndexAnnotation(new IndexAttribute()));
+
+            Property(p => p.PortraitPicture)
+                .HasMaxLength(null);
         }
     }
 }

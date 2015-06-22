@@ -1,9 +1,10 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Threading.Tasks;
 
 namespace PeopleSearch.Wpf.Client.Mvvm
 {
-    public interface IObservableTask<out TResult>
+    public interface IObservableTask<out TResult> : INotifyPropertyChanged
     {
         TResult Result { get; }
         TaskStatus Status { get; }

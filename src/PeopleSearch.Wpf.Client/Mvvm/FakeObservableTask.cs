@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Threading.Tasks;
+using PeopleSearch.Core.ComponentModel;
 
 namespace PeopleSearch.Wpf.Client.Mvvm
 {
-    public class FakeObservableTask<TResult> : IObservableTask<TResult>
+    public class FakeObservableTask<TResult> : PropertyChangedNotifier, IObservableTask<TResult>
     {
         public TResult Result { get; set; }
         public TaskStatus Status { get; set; }

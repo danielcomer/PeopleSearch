@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using PeopleSearch.Data.Entity;
 
 namespace PeopleSearch.Data.Migrations
