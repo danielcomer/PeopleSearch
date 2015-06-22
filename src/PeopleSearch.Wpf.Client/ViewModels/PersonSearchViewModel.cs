@@ -8,12 +8,12 @@ using PeopleSearch.Wpf.Client.Mvvm;
 
 namespace PeopleSearch.Wpf.Client.ViewModels
 {
-    //todo: consider autosearching on property changed "SearchString" instead of the command.
     public class PersonSearchViewModel : ViewModelBase, IPersonSearchViewModel
     {
         #region Members
 
         private readonly IPeopleServiceContext _dbContext;
+        private readonly IObservableTaskFactory _taskFactory;
         private IObservableTask<IList<Person>> _people;
 
         #endregion
@@ -40,15 +40,13 @@ namespace PeopleSearch.Wpf.Client.ViewModels
 
         #region Constructors
 
-        public PersonSearchViewModel(IPeopleServiceContext dbContext)
+        public PersonSearchViewModel(IPeopleServiceContext dbContext, IObservableTaskFactory taskFactory)
         {
             _dbContext = dbContext;
+            _taskFactory = taskFactory;
 
             SearchByName = new RelayCommand<string>(ExecuteSearchByNameCommand);
-
-            var query = _dbContext.People.Include(p => p.HomeAddress).ToListAsync();
-
-            People = new ObservableTask<List<Person>>(query);
+            People = _taskFactory.Create(CreateQuery().ToListAsync());
         }
 
         #endregion
@@ -57,14 +55,21 @@ namespace PeopleSearch.Wpf.Client.ViewModels
         
         private void ExecuteSearchByNameCommand(string personName)
         {
-            var searchString = (personName ?? string.Empty).ToUpper();
+            People = _taskFactory.Create(CreateQuery(personName).ToListAsync());
+        }
 
-            var query =
-                _dbContext.People.Include(p => p.HomeAddress)
-                    .Where(p => p.FirstName.ToUpper().Contains(searchString) || p.LastName.ToUpper().Contains(searchString))
-                    .ToListAsync();
+        private IQueryable<Person> CreateQuery(string personName = null)
+        {
+            var query = _dbContext.People.Include(p => p.HomeAddress);
 
-            People = new ObservableTask<List<Person>>(query);
+            if (!string.IsNullOrEmpty(personName))
+            {
+                query = query.Where(p =>
+                    p.FirstName.ToUpper().Contains(personName.ToUpper()) ||
+                    p.LastName.ToUpper().Contains(personName.ToUpper()));
+            }
+
+            return query;
         }
 
         #endregion

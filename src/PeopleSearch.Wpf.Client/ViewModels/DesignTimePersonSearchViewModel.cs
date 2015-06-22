@@ -8,15 +8,12 @@ namespace PeopleSearch.Wpf.Client.ViewModels
 {
     public class DesignTimePersonSearchViewModel : ViewModelBase, IPersonSearchViewModel
     {
-        public string SearchString { get; set; }
-
         public IObservableTask<IList<Person>> People { get; }
 
         public ICommand SearchByName { get; }
 
         public DesignTimePersonSearchViewModel()
         {
-            SearchString = "Hello";
             People = new FakeObservableTask<IList<Person>>()
             {
                 Result = CreateFakePeople(),

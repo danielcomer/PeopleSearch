@@ -6,17 +6,32 @@ namespace PeopleSearch.Wpf.Client.Mvvm
 {
     public sealed class ObservableTask<TResult> : PropertyChangedNotifier, IObservableTask<TResult>
     {
+        #region Members
+
+        private Task<TResult> _theTask;
+
+        #endregion
+
         #region Public Properties
 
-        public Task<TResult> Task { get; }
-        public TResult Result => (Task.Status == TaskStatus.RanToCompletion) ? Task.Result : default(TResult);
-        public TaskStatus Status => Task.Status;
-        public bool IsCompleted => Task.IsCompleted;
-        public bool IsNotCompleted => !Task.IsCompleted;
-        public bool IsSuccessfullyCompleted => Task.Status == TaskStatus.RanToCompletion;
-        public bool IsCanceled => Task.IsCanceled;
-        public bool IsFaulted => Task.IsFaulted;
-        public AggregateException Exception => Task.Exception;
+        public Task<TResult> TheTask
+        {
+            get { return _theTask; }
+            set
+            {
+                SetBackingMemberValue(ref _theTask, value);
+                RaiseAllTaskPropertiesChanged();
+            }
+        }
+
+        public TResult Result => (TheTask?.Status == TaskStatus.RanToCompletion) ? TheTask.Result : default(TResult);
+        public TaskStatus Status => TheTask.Status;
+        public bool IsCompleted => TheTask?.IsCompleted ?? false;
+        public bool IsNotCompleted => !TheTask?.IsCompleted ?? true;
+        public bool IsSuccessfullyCompleted => TheTask?.Status == TaskStatus.RanToCompletion;
+        public bool IsCanceled => TheTask?.IsCanceled ?? false;
+        public bool IsFaulted => TheTask?.IsFaulted ?? false;
+        public AggregateException Exception => TheTask?.Exception;
         public Exception InnerException => Exception?.InnerException;
         public string ErrorMessage => InnerException?.Message;
 
@@ -24,12 +39,18 @@ namespace PeopleSearch.Wpf.Client.Mvvm
 
         #region Constructors
 
-        public ObservableTask(Task<TResult> task)
+        public ObservableTask(Task<TResult> theTask, TimeSpan? simulatedDelaySpan = null)
         {
-            Task = task;
-            if (!task.IsCompleted)
+            if (simulatedDelaySpan != null)
             {
-                var _ = WatchTaskAsync(task);
+                var delay = Task.Delay(simulatedDelaySpan.Value);
+                delay.ContinueWith(t => TheTask = theTask);
+                var _ = WatchTaskAsync(delay);
+            }
+            else
+            {
+                TheTask = theTask;
+                var _ = WatchTaskAsync(theTask);
             }
         }
 
@@ -48,26 +69,21 @@ namespace PeopleSearch.Wpf.Client.Mvvm
             {
             }
 
+            RaiseAllTaskPropertiesChanged();
+        }
+
+        private void RaiseAllTaskPropertiesChanged()
+        {
             RaisePropertyChanged(nameof(Status));
             RaisePropertyChanged(nameof(IsCompleted));
             RaisePropertyChanged(nameof(IsNotCompleted));
-
-            if (task.IsCanceled)
-            {
-                RaisePropertyChanged(nameof(IsCanceled));
-            }
-            else if (task.IsFaulted)
-            {
-                RaisePropertyChanged(nameof(IsFaulted));
-                RaisePropertyChanged(nameof(Exception));
-                RaisePropertyChanged(nameof(InnerException));
-                RaisePropertyChanged(nameof(ErrorMessage));
-            }
-            else
-            {
-                RaisePropertyChanged(nameof(IsSuccessfullyCompleted));
-                RaisePropertyChanged(nameof(Result));
-            }
+            RaisePropertyChanged(nameof(IsCanceled));
+            RaisePropertyChanged(nameof(IsFaulted));
+            RaisePropertyChanged(nameof(Exception));
+            RaisePropertyChanged(nameof(InnerException));
+            RaisePropertyChanged(nameof(ErrorMessage));
+            RaisePropertyChanged(nameof(IsSuccessfullyCompleted));
+            RaisePropertyChanged(nameof(Result));
         }
 
         #endregion

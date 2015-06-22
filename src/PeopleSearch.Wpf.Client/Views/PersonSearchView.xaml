@@ -6,6 +6,7 @@
              xmlns:controls="clr-namespace:Jti.EcourtWordAddIn.UI.Controls"
              xmlns:viewModels="clr-namespace:PeopleSearch.Wpf.Client.ViewModels"
              xmlns:model="clr-namespace:PeopleSearch.Data.Entity.Model;assembly=PeopleSearch.Data"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance Type=viewModels:DesignTimePersonSearchViewModel, IsDesignTimeCreatable=True}"
              DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=PersonSearchViewModel}"
@@ -18,13 +19,23 @@
         
         <StackPanel Orientation="Horizontal" Margin="10">
             <Label>Search By Name:</Label>
-            <TextBox x:Name="SearchTextBox" Width="250" Margin="10,0,10,0" 
-                     Text="{Binding SearchString, UpdateSourceTrigger=PropertyChanged}" MinWidth="100">
+            <TextBox x:Name="SearchTextBox" Width="250" Margin="10,0,10,0" MinWidth="100">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="TextChanged">
+                        <i:InvokeCommandAction Command="{Binding SearchByName}" CommandParameter="{Binding ElementName=SearchTextBox, Path=Text }" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
                 <TextBox.InputBindings>
                     <KeyBinding Key="Enter" Command="{Binding SearchByName}" CommandParameter="{Binding ElementName=SearchTextBox, Path=Text }" />
                 </TextBox.InputBindings>
             </TextBox>
-            <Button Command="{Binding SearchByName}" CommandParameter="{Binding ElementName=SearchTextBox, Path=Text}">Search</Button>
+            <Button Content="Search">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <i:InvokeCommandAction Command="{Binding SearchByName}" CommandParameter="{Binding ElementName=SearchTextBox, Path=Text }" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
         </StackPanel>
         
         <Grid Grid.Row="1" Margin="5">
