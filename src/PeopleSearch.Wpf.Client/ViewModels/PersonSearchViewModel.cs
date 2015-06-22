@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using PeopleSearch.Data.Entity;
 using PeopleSearch.Data.Entity.Model;
@@ -14,13 +16,13 @@ namespace PeopleSearch.Wpf.Client.ViewModels
 
         private readonly IPeopleServiceContext _dbContext;
         private readonly IObservableTaskFactory _taskFactory;
+        private CancellationTokenSource _queryCancellationTokenSource;
+         
         private IObservableTask<IList<Person>> _people;
 
-        #endregion
+        #endregion Members
 
         #region Properties
-
-        #region Observable
 
         public IObservableTask<IList<Person>> People
         {
@@ -28,9 +30,7 @@ namespace PeopleSearch.Wpf.Client.ViewModels
             private set { SetBackingMemberValue(ref _people, value); }
         }
 
-        #endregion
-
-        #endregion
+        #endregion Properties
 
         #region Commmands
 
@@ -46,16 +46,34 @@ namespace PeopleSearch.Wpf.Client.ViewModels
             _taskFactory = taskFactory;
 
             SearchByName = new RelayCommand<string>(ExecuteSearchByName);
-            People = _taskFactory.Create(CreateQuery().ToListAsync());
+
+            ExecuteSearchByName();
         }
 
         #endregion
 
         #region Methods
-        
-        private void ExecuteSearchByName(string personName)
+
+        #region Private
+
+        private void ExecuteSearchByName(string personName = null)
         {
-            People = _taskFactory.Create(CreateQuery(personName).ToListAsync());
+            Task.Run(() =>
+            {
+                if (_queryCancellationTokenSource == null) return;
+
+                _queryCancellationTokenSource.Cancel();
+                _queryCancellationTokenSource.Token.WaitHandle.WaitOne();
+            })
+            .ContinueWith(async task =>
+            {
+                await task;
+
+                _queryCancellationTokenSource?.Dispose();
+                _queryCancellationTokenSource = new CancellationTokenSource();
+
+                People = _taskFactory.Create(CreateQuery(personName).ToListAsync(_queryCancellationTokenSource.Token));
+            });
         }
 
         private IQueryable<Person> CreateQuery(string personName = null)
@@ -72,6 +90,8 @@ namespace PeopleSearch.Wpf.Client.ViewModels
             return query;
         }
 
-        #endregion
+        #endregion Private
+
+        #endregion Methods
     }
 }

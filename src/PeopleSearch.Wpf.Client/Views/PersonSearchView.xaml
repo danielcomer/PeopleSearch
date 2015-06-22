@@ -7,6 +7,7 @@
              xmlns:viewModels="clr-namespace:PeopleSearch.Wpf.Client.ViewModels"
              xmlns:model="clr-namespace:PeopleSearch.Data.Entity.Model;assembly=PeopleSearch.Data"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:controls1="clr-namespace:PeopleSearch.Wpf.Client.Controls"
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance Type=viewModels:DesignTimePersonSearchViewModel, IsDesignTimeCreatable=True}"
              DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=PersonSearchViewModel}"
@@ -48,6 +49,9 @@
 
             <ListBox ItemsSource="{Binding Path=People.Result}" HorizontalContentAlignment="Stretch"
                      Visibility="{Binding People.IsSuccessfullyCompleted, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <controls1:WatermarkService.Watermark>
+                    <TextBlock>No Results Returned</TextBlock>
+                </controls1:WatermarkService.Watermark>
                 <ListBox.ItemTemplate>
                     <DataTemplate DataType="{x:Type model:Person}">
                         <Grid Margin="5">

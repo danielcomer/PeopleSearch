@@ -112,6 +112,8 @@
     <Compile Include="Controls\CircularProgressBar.xaml.cs">
       <DependentUpon>CircularProgressBar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\TextBoxSelectorService.cs" />
+    <Compile Include="Controls\WatermarkService.cs" />
     <Compile Include="Interactivity\TriggerActions\ClearTextBoxTriggerAction.cs" />
     <Compile Include="IoC\KernelAlreadyInitializedException.cs" />
     <Compile Include="IoC\KernelNotInitilizedException.cs" />

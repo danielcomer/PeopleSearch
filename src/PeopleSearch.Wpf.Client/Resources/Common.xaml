@@ -2,7 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:PeopleSearch.Wpf.Client.Resources"
                     xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-                    xmlns:triggerActions="clr-namespace:PeopleSearch.Wpf.Client.Interactivity.TriggerActions">
+                    xmlns:triggerActions="clr-namespace:PeopleSearch.Wpf.Client.Interactivity.TriggerActions"
+                    xmlns:controls="clr-namespace:PeopleSearch.Wpf.Client.Controls">
     
     <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
 
@@ -31,8 +32,9 @@
         <Setter Property="Padding" Value="10,0"/>
     </Style>
 
+
     <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource BaseControlStyle}">
-        <!--<Setter Property="controls:SelectTextOnFocusService.SelectAllOnFocus" Value="True"></Setter>-->
+        <Setter Property="controls:TextBoxSelectorService.SelectAllOnFocus" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TextBoxBase}">
