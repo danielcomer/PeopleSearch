@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace PeopleSearch.Core.Messaging
+namespace PeopleSearch.Core.Infrastructure
 {
-    public interface IEventPublisher
+    public interface IEventAggregator
     {
         void Publish<TEvent>(TEvent sampleEvent) where TEvent : IEvent;
         IObservable<TEvent> GetEvent<TEvent>() where TEvent : IEvent;

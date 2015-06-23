@@ -6,5 +6,6 @@ namespace PeopleSearch.Wpf.Client.Mvvm
     public class ViewModelLocator
     {
         public IPersonSearchViewModel PersonSearchViewModel => NinjectServiceLocator.Get<IPersonSearchViewModel>();
+        public IPersonInterestsViewModel PersonInterestsViewModel => NinjectServiceLocator.Get<IPersonInterestsViewModel>();
     }
 }

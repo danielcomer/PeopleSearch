@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -429,6 +430,21 @@ namespace PeopleSearch.Data.Migrations
             {
                 addresses[i].People.Add(people[i]);
                 people[i].HomeAddress = addresses[i];
+            }
+        }
+
+        public static void AssociatePeopleWithInterests(List<Person> people, List<Interest> interests)
+        {
+            var rnd = new Random();
+
+            foreach (var person in people)
+            {
+                var interestCount = rnd.Next(5, 20);
+                for (var i = 0; i < interestCount; i++)
+                {
+                    var interestIndex = rnd.Next(0, interests.Count - 1);
+                    person.Interests.Add(interests[interestIndex]);
+                }
             }
         }
     }

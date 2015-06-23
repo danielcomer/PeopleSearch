@@ -16,11 +16,13 @@ namespace PeopleSearch.Data.Migrations
 
             context.People.AddRange(people);
 
-            FakeDataFactory.AssociateAddressesWithPeople(people, addresses);
-
             context.Addresses.AddRange(addresses);
 
             context.Interests.AddRange(interests);
+
+            FakeDataFactory.AssociateAddressesWithPeople(people, addresses);
+
+            FakeDataFactory.AssociatePeopleWithInterests(people, interests);
 
             context.SaveChanges();
         }

@@ -59,10 +59,10 @@
   <ItemGroup>
     <Compile Include="ComponentModel\PropertyChangedNotifier.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
-    <Compile Include="Messaging\DefaultEventPublisher.cs" />
-    <Compile Include="Messaging\EventBase.cs" />
-    <Compile Include="Messaging\IEvent.cs" />
-    <Compile Include="Messaging\IEventPublisher.cs" />
+    <Compile Include="Infrastructure\DefaultEventAggregator.cs" />
+    <Compile Include="Infrastructure\EventBase.cs" />
+    <Compile Include="Infrastructure\IEvent.cs" />
+    <Compile Include="Infrastructure\IEventAggregator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

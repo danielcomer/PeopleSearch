@@ -1,5 +1,5 @@
 ﻿using System;
-using PeopleSearch.Core.Messaging;
+using PeopleSearch.Core.Infrastructure;
 using Xunit;
 
 namespace PeopleSearch.Core.UnitTests.Messaging
@@ -32,7 +32,7 @@ namespace PeopleSearch.Core.UnitTests.Messaging
         {
             var eventWasRaised = false;
 
-            var eventPublisher = new DefaultEventPublisher();
+            var eventPublisher = new DefaultEventAggregator();
 
             eventPublisher.GetEvent<SampleEvent>().Subscribe(se => eventWasRaised = true);
 

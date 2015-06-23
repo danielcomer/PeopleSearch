@@ -9,8 +9,6 @@ namespace PeopleSearch.Wpf.Client.Mvvm
 
         public DefaultObservableTaskFactory(TimeSpan? simulatedDelay)
         {
-            
-
             _simulatedDelay = simulatedDelay;
         }
 

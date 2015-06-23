@@ -1,4 +1,4 @@
-﻿namespace PeopleSearch.Core.Messaging
+﻿namespace PeopleSearch.Core.Infrastructure
 {
     public abstract class EventBase : IEvent
     {

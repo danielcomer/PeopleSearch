@@ -3,9 +3,9 @@ using System.Collections.Concurrent;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
 
-namespace PeopleSearch.Core.Messaging
+namespace PeopleSearch.Core.Infrastructure
 {
-    public class DefaultEventPublisher : IEventPublisher
+    public class DefaultEventAggregator : IEventAggregator
     {
         private readonly ConcurrentDictionary<Type, object> _subjects = new ConcurrentDictionary<Type, object>();
 

@@ -3,9 +3,21 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:PeopleSearch.Wpf.Client"
         xmlns:views="clr-namespace:PeopleSearch.Wpf.Client.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="600">
-    <views:PersonSearchView></views:PersonSearchView>
+        Title="People Search" Height="600" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="200" />
+        </Grid.ColumnDefinitions>
+        
+        <views:PersonSearchView Margin="10" />
+        
+        <DockPanel Grid.Column="1" Margin="10">
+            <TextBlock DockPanel.Dock="Top" FontWeight="Bold" Margin="0,10,0,5">Interests</TextBlock>
+            <views:PersonInterstsView />
+        </DockPanel>   
+        
+    </Grid>
 </Window>

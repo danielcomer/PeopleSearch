@@ -7,6 +7,7 @@ namespace PeopleSearch.Wpf.Client.ViewModels
 {
     public interface IPersonSearchViewModel
     {
+        Person SelectedPerson { get; }
         IObservableTask<IList<Person>> People { get; }
         ICommand SearchByName { get; }
     }

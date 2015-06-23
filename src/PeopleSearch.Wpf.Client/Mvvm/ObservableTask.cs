@@ -76,16 +76,16 @@ namespace PeopleSearch.Wpf.Client.Mvvm
 
         private void RaiseAllTaskPropertiesChanged()
         {
-            RaisePropertyChanged(nameof(Status));
-            RaisePropertyChanged(nameof(IsCompleted));
-            RaisePropertyChanged(nameof(IsNotCompleted));
-            RaisePropertyChanged(nameof(IsCanceled));
-            RaisePropertyChanged(nameof(IsFaulted));
-            RaisePropertyChanged(nameof(Exception));
-            RaisePropertyChanged(nameof(InnerException));
-            RaisePropertyChanged(nameof(ErrorMessage));
-            RaisePropertyChanged(nameof(IsSuccessfullyCompleted));
-            RaisePropertyChanged(nameof(Result));
+            OnPropertyChanged(nameof(Status));
+            OnPropertyChanged(nameof(IsCompleted));
+            OnPropertyChanged(nameof(IsNotCompleted));
+            OnPropertyChanged(nameof(IsCanceled));
+            OnPropertyChanged(nameof(IsFaulted));
+            OnPropertyChanged(nameof(Exception));
+            OnPropertyChanged(nameof(InnerException));
+            OnPropertyChanged(nameof(ErrorMessage));
+            OnPropertyChanged(nameof(IsSuccessfullyCompleted));
+            OnPropertyChanged(nameof(Result));
         }
 
         #endregion

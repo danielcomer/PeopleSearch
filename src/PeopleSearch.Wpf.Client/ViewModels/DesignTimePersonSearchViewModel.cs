@@ -8,19 +8,15 @@ namespace PeopleSearch.Wpf.Client.ViewModels
 {
     public class DesignTimePersonSearchViewModel : ViewModelBase, IPersonSearchViewModel
     {
-        public IObservableTask<IList<Person>> People { get; }
+        public Person SelectedPerson => null;
 
-        public ICommand SearchByName { get; }
-
-        public DesignTimePersonSearchViewModel()
+        public IObservableTask<IList<Person>> People => new FakeObservableTask<IList<Person>>
         {
-            People = new FakeObservableTask<IList<Person>>()
-            {
-                Result = CreateFakePeople(),
-                IsSuccessfullyCompleted = true
-            };
-            SearchByName = null;
-        }
+            Result = CreateFakePeople(),
+            IsSuccessfullyCompleted = true
+        };
+
+        public ICommand SearchByName => null;
 
         private static IList<Person> CreateFakePeople()
         {
@@ -29,6 +25,7 @@ namespace PeopleSearch.Wpf.Client.ViewModels
             var interests = FakeDataFactory.CreateInterests();
 
             FakeDataFactory.AssociateAddressesWithPeople(people, addresses);
+            FakeDataFactory.AssociatePeopleWithInterests(people, interests);
 
             return people;
         }
