@@ -23,7 +23,7 @@ namespace PeopleSearch.Wpf.Client.IoC
                         int.Parse(ConfigurationManager.AppSettings["SimulatedDelayInMilleseconds"])));
 
             Bind<IPeopleServiceContext>()
-                .To<PeopleServiceContext>()
+                .To<PeopleServiceDbContext>()
                 .InParentScope()
                 .WithConstructorArgument(typeof (string),
                     ConfigurationManager.AppSettings["PeopleServiceContext:DbConnectionString"]);

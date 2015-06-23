@@ -80,7 +80,7 @@
     <Compile Include="Entity\ModelConfiguration\PersonEntityConfiguration.cs" />
     <Compile Include="Entity\IDbContext.cs" />
     <Compile Include="Entity\IPeopleServiceContext.cs" />
-    <Compile Include="Entity\PeopleServiceContext.cs" />
+    <Compile Include="Entity\PeopleServiceDbContext.cs" />
     <Compile Include="Entity\Model\Address.cs" />
     <Compile Include="Entity\Model\Gender.cs" />
     <Compile Include="Entity\Model\Interest.cs" />

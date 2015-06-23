@@ -4,8 +4,9 @@ using System.Threading.Tasks;
 
 namespace PeopleSearch.Wpf.Client.Mvvm
 {
-    public interface IObservableTask<out TResult> : INotifyPropertyChanged
+    public interface IObservableTask<TResult> : INotifyPropertyChanged
     {
+        Task<TResult> TheTask { get; }
         TResult Result { get; }
         TaskStatus Status { get; }
         bool IsCompleted { get; }

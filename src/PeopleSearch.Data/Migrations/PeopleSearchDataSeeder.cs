@@ -1,30 +1,29 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using PeopleSearch.Data.Entity;
 
 namespace PeopleSearch.Data.Migrations
 {
     public static class PeopleSearchDataSeeder
     {
-        public static void Seed(PeopleServiceContext context)
+        public static void Seed(PeopleServiceDbContext dbContext)
         {
-            if (context.People.Count() != 0) return;
+            if (dbContext.People.Count() != 0) return;
 
             var people = FakeDataFactory.CreatePeople();
             var addresses = FakeDataFactory.CreateAddresses();
             var interests = FakeDataFactory.CreateInterests();
 
-            context.People.AddRange(people);
+            dbContext.People.AddRange(people);
 
-            context.Addresses.AddRange(addresses);
+            dbContext.Addresses.AddRange(addresses);
 
-            context.Interests.AddRange(interests);
+            dbContext.Interests.AddRange(interests);
 
             FakeDataFactory.AssociateAddressesWithPeople(people, addresses);
 
             FakeDataFactory.AssociatePeopleWithInterests(people, interests);
 
-            context.SaveChanges();
+            dbContext.SaveChanges();
         }
     }
 }

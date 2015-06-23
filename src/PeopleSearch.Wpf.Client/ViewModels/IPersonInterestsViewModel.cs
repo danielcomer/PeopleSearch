@@ -6,6 +6,6 @@ namespace PeopleSearch.Wpf.Client.ViewModels
 {
     public interface IPersonInterestsViewModel
     {
-        IObservableTask<IList<Interest>> Interests { get; }
+        IObservableTask<List<Interest>> Interests { get; }
     }
 }

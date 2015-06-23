@@ -6,6 +6,7 @@ namespace PeopleSearch.Wpf.Client.Mvvm
 {
     public class FakeObservableTask<TResult> : PropertyChangedNotifier, IObservableTask<TResult>
     {
+        public Task<TResult> TheTask { get; set; }
         public TResult Result { get; set; }
         public TaskStatus Status { get; set; }
         public bool IsCompleted { get; set; }

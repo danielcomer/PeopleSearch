@@ -10,7 +10,7 @@ namespace PeopleSearch.Wpf.Client.ViewModels
     {
         public Person SelectedPerson => null;
 
-        public IObservableTask<IList<Person>> People => new FakeObservableTask<IList<Person>>
+        public IObservableTask<List<Person>> People => new FakeObservableTask<List<Person>>
         {
             Result = CreateFakePeople(),
             IsSuccessfullyCompleted = true
@@ -18,7 +18,7 @@ namespace PeopleSearch.Wpf.Client.ViewModels
 
         public ICommand SearchByName => null;
 
-        private static IList<Person> CreateFakePeople()
+        private static List<Person> CreateFakePeople()
         {
             var people = FakeDataFactory.CreatePeople();
             var addresses = FakeDataFactory.CreateAddresses();

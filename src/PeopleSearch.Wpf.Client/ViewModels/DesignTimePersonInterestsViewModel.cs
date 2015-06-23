@@ -8,7 +8,7 @@ namespace PeopleSearch.Wpf.Client.ViewModels
 {
     public class DesignTimePersonInterestsViewModel : IPersonInterestsViewModel
     {
-        public IObservableTask<IList<Interest>> Interests => new FakeObservableTask<IList<Interest>>
+        public IObservableTask<List<Interest>> Interests => new FakeObservableTask<List<Interest>>
         {
             Result = FakeDataFactory.CreateInterests().Take(60).ToList(),
             IsSuccessfullyCompleted = true

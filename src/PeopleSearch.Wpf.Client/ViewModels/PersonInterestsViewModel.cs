@@ -4,7 +4,6 @@ using System.Data.Entity;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Windows;
 using PeopleSearch.Core.Infrastructure;
 using PeopleSearch.Data.Entity;
 using PeopleSearch.Data.Entity.Model;
@@ -18,7 +17,7 @@ namespace PeopleSearch.Wpf.Client.ViewModels
         #region Members
 
         private readonly IEnumerable<IDisposable> _subscriptions;
-        private IObservableTask<IList<Interest>> _interests;
+        private IObservableTask<List<Interest>> _interests;
         private readonly IPeopleServiceContext _dbContext;
         private readonly IObservableTaskFactory _taskFactory;
         private CancellationTokenSource _queryCancellationTokenSource;
@@ -27,7 +26,7 @@ namespace PeopleSearch.Wpf.Client.ViewModels
 
         #region Properties
 
-        public IObservableTask<IList<Interest>> Interests
+        public IObservableTask<List<Interest>> Interests
         {
             get { return _interests; }
             private set { SetBackingMemberValue(ref _interests, value); }
@@ -70,31 +69,29 @@ namespace PeopleSearch.Wpf.Client.ViewModels
 
         #region Private
 
-        private void ExecuteLoadInterests(int personId)
+        private async Task ExecuteLoadInterests(int personId)
         {
-            Task.Run(() =>
+            if (_queryCancellationTokenSource != null)
             {
-                if (_queryCancellationTokenSource == null) return;
-
                 _queryCancellationTokenSource.Cancel();
-                _queryCancellationTokenSource.Token.WaitHandle.WaitOne();
-            })
-            .ContinueWith(async task =>
+                _queryCancellationTokenSource.Dispose();
+            }
+
+            if (Interests?.TheTask != null)
             {
-                await task;
+                await Interests?.TheTask;
+                Interests?.TheTask?.Dispose();
+            }
 
-                _queryCancellationTokenSource?.Dispose();
-                _queryCancellationTokenSource = new CancellationTokenSource();
+            _queryCancellationTokenSource = new CancellationTokenSource();
 
-                 Interests = _taskFactory.Create(CreateQuery(personId).ToListAsync(_queryCancellationTokenSource.Token));
-            });
+            Interests = _taskFactory.Create(CreateQuery(personId).ToListAsync(_queryCancellationTokenSource.Token));
         }
 
         private IQueryable<Interest> CreateQuery(int personId)
         {
             var interestsQuery =
                 _dbContext.Interests
-                    .Include(i => i.People)
                     .Where(i => i.People.Select(p => p.Id).Contains(personId));
 
             return interestsQuery;
@@ -104,6 +101,8 @@ namespace PeopleSearch.Wpf.Client.ViewModels
 
         public void Dispose()
         {
+            Interests?.TheTask?.Dispose();
+
             foreach (var subscription in _subscriptions)
             {
                 subscription.Dispose();
