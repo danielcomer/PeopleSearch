@@ -4,16 +4,19 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:viewModels="clr-namespace:PeopleSearch.Wpf.Client.ViewModels"
+             xmlns:controls="clr-namespace:PeopleSearch.Wpf.Client.Controls"
              mc:Ignorable="d" Background="White"
              d:DataContext="{d:DesignInstance Type=viewModels:DesignTimePersonInterestsViewModel, IsDesignTimeCreatable=True}"
-             DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=PersonInterestsViewModel}" d:DesignWidth="600" d:DesignHeight="200">
+             DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=PersonInterestsViewModel}" d:DesignWidth="300" d:DesignHeight="600">
     <ListView ItemsSource="{Binding Interests.Result}" DisplayMemberPath="Text"
               ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+        <controls:WatermarkService.Watermark>
+            <TextBlock>Select a person to see their interests.</TextBlock>
+        </controls:WatermarkService.Watermark>
         <ListView.ItemsPanel>
             <ItemsPanelTemplate>
                 <WrapPanel Orientation="Horizontal"></WrapPanel>
             </ItemsPanelTemplate>
         </ListView.ItemsPanel>
     </ListView>
-        
 </UserControl>
